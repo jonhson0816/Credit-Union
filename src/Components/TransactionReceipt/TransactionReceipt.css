@@ -1,0 +1,419 @@
+/* Transaction Receipt Styles */
+
+.txreceipt-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #003366 0%, #004080 50%, #0056b3 100%);
+  padding: 2rem 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.txreceipt-container {
+  max-width: 900px;
+  margin: 0 auto;
+  animation: txreceiptSlideIn 0.5s ease-out;
+}
+
+/* Header */
+.txreceipt-header {
+  margin-bottom: 2rem;
+}
+
+.txreceipt-header h1 {
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.txreceipt-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.txreceipt-back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateX(-5px);
+}
+
+/* Receipt Card */
+.txreceipt-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: txreceiptFadeIn 0.6s ease-out;
+}
+
+/* Bank Header */
+.txreceipt-bank-header {
+  background: linear-gradient(135deg, #003366 0%, #004080 100%);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 4px solid #FFB81C;
+}
+
+.txreceipt-bank-logo {
+  width:60px;
+height: 60px;
+background: rgba(255, 184, 28, 0.2);
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #FFB81C;
+}.txreceipt-bank-info {
+flex: 1;
+}.txreceipt-bank-info h2 {
+color: #FFFFFF;
+font-size: 1.5rem;
+font-weight: 700;
+margin: 0 0 0.25rem;
+}.txreceipt-bank-info p {
+color: #FFB81C;
+font-size: 0.875rem;
+font-weight: 500;
+margin: 0;
+}.txreceipt-status-badge {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+padding: 0.75rem 1.5rem;
+background: rgba(255, 255, 255, 0.1);
+border: 2px solid rgba(255, 255, 255, 0.3);
+border-radius: 12px;
+color: #FFFFFF;
+font-weight: 700;
+font-size: 0.875rem;
+text-transform: uppercase;
+}.txreceipt-status-icon-success {
+color: #10B981;
+}.txreceipt-status-icon-pending {
+color: #F59E0B;
+}.txreceipt-status-icon-failed {
+color: #DC2626;
+}/* Confirmation Number */
+.txreceipt-confirmation {
+display: flex;
+align-items: center;
+gap: 1rem;
+padding: 1.5rem 2rem;
+background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+border: 3px dashed #F59E0B;
+margin: 2rem;
+border-radius: 12px;
+}.txreceipt-confirmation svg {
+color: #92400E;
+flex-shrink: 0;
+}.txreceipt-conf-label {
+display: block;
+color: #92400E;
+font-size: 0.75rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 0.25rem;
+}.txreceipt-conf-value {
+display: block;
+color: #78350F;
+font-size: 1.25rem;
+font-weight: 800;
+font-family: 'Courier New', monospace;
+letter-spacing: 1px;
+}/* Amount Section */
+.txreceipt-amount-section {
+text-align: center;
+padding: 3rem 2rem;
+background: linear-gradient(135deg, #003366 0%, #004080 100%);
+position: relative;
+overflow: hidden;
+}.txreceipt-amount-section::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle, rgba(255, 184, 28, 0.1) 0%, transparent 70%);
+animation: txreceiptRotate 10s linear infinite;
+}.txreceipt-transaction-icon {
+width: 80px;
+height: 80px;
+margin: 0 auto 1.5rem;
+background: rgba(255, 255, 255, 0.1);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+z-index: 1;
+}.txreceipt-icon-credit {
+color: #10B981;
+}.txreceipt-icon-debit {
+color: #FFB81C;
+}.txreceipt-amount-label {
+color: #FFB81C;
+font-size: 0.875rem;
+font-weight: 600;
+letter-spacing: 1px;
+text-transform: uppercase;
+margin-bottom: 1rem;
+position: relative;
+z-index: 1;
+}.txreceipt-amount-value {
+color: #FFFFFF;
+font-size: 3.5rem;
+font-weight: 900;
+letter-spacing: -1px;
+position: relative;
+z-index: 1;
+text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}.txreceipt-fee-note {
+color: #FFB81C;
+font-size: 0.875rem;
+font-weight: 500;
+margin-top: 1rem;
+position: relative;
+z-index: 1;
+}/* Sections */
+.txreceipt-section {
+padding: 2rem;
+border-bottom: 2px solid #F3F4F6;
+}.txreceipt-section:last-of-type {
+border-bottom: none;
+}.txreceipt-section h3 {
+color: #003366;
+font-size: 1.25rem;
+font-weight: 700;
+margin: 0 0 1.5rem;
+display: flex;
+align-items: center;
+gap: 0.75rem;
+padding-bottom: 0.75rem;
+border-bottom: 2px solid #FFB81C;
+}.txreceipt-section h3 svg {
+color: #FFB81C;
+}/* Detail Grid */
+.txreceipt-detail-grid {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}.txreceipt-detail-row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem;
+background: #F9FAFB;
+border: 1px solid #E5E7EB;
+border-radius: 10px;
+transition: all 0.3s ease;
+}.txreceipt-detail-row:hover {
+background: #FFFFFF;
+border-color: #FFB81C;
+transform: translateX(5px);
+box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+}.txreceipt-label {
+color: #6B7280;
+font-weight: 600;
+font-size: 0.875rem;
+}.txreceipt-value {
+color: #111827;
+font-weight: 700;
+font-size: 1rem;
+text-align: right;
+}.txreceipt-highlight {
+color: #003366;
+font-size: 1.125rem;
+}/* Description */
+.txreceipt-description {
+color: #111827;
+font-size: 1rem;
+line-height: 1.6;
+padding: 1rem;
+background: #F9FAFB;
+border-left: 4px solid #FFB81C;
+border-radius: 8px;
+margin: 0;
+}/* Actions */
+.txreceipt-actions {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1rem;
+padding: 2rem;
+background: #F9FAFB;
+}.txreceipt-action-btn {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
+padding: 1.25rem;
+background: #FFFFFF;
+color: #003366;
+border: 2px solid #003366;
+border-radius: 12px;
+font-size: 0.875rem;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s ease;
+}.txreceipt-action-btn:hover {
+background: #003366;
+color: #FFB81C;
+transform: translateY(-3px);
+box-shadow: 0 8px 20px rgba(0, 51, 102, 0.2);
+}.txreceipt-action-btn svg {
+transition: transform 0.3s ease;
+}.txreceipt-action-btn:hover svg {
+transform: scale(1.2);
+}/* Footer */
+.txreceipt-footer {
+padding: 2rem;
+text-align: center;
+background: #F9FAFB;
+border-top: 2px solid #E5E7EB;
+}.txreceipt-footer p {
+color: #6B7280;
+font-size: 0.875rem;
+font-weight: 500;
+margin: 0.5rem 0;
+}.txreceipt-footer-meta {
+color: #9CA3AF;
+font-size: 0.75rem;
+margin-top: 1rem;
+}/* Loading & Error */
+.txreceipt-loading,
+.txreceipt-error {
+text-align: center;
+padding: 4rem 2rem;
+color: #FFFFFF;
+}.txreceipt-loading p {
+font-size: 1.25rem;
+font-weight: 600;
+margin-top: 1rem;
+}.txreceipt-error {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1rem;
+}.txreceipt-error h2 {
+font-size: 1.5rem;
+font-weight: 700;
+margin: 0;
+}.txreceipt-error p {
+font-size: 1rem;
+margin: 0;
+}.txreceipt-btn-primary {
+padding: 1rem 2rem;
+background: #FFB81C;
+color: #003366;
+border: none;
+border-radius: 12px;
+font-size: 1rem;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s ease;
+margin-top: 1rem;
+}.txreceipt-btn-primary:hover {
+background: #F5A623;
+transform: translateY(-2px);
+box-shadow: 0 8px 20px rgba(255, 184, 28, 0.3);
+}/* Spinner */
+.txreceipt-spinner {
+width: 50px;
+height: 50px;
+border: 4px solid rgba(255, 255, 255, 0.3);
+border-top-color: #FFB81C;
+border-radius: 50%;
+animation: txreceiptSpin 1s linear infinite;
+margin: 0 auto;
+}/* Animations */
+@keyframes txreceiptSlideIn {
+from {
+opacity: 0;
+transform: translateY(-20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}@keyframes txreceiptFadeIn {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}@keyframes txreceiptSpin {
+to {
+transform: rotate(360deg);
+}
+}@keyframes txreceiptRotate {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}/* Responsive */
+@media (max-width: 768px) {
+.txreceipt-page {
+padding: 1rem 0.5rem;
+}.txreceipt-header h1 {
+font-size: 1.5rem;
+}.txreceipt-bank-header {
+flex-direction: column;
+text-align: center;
+}.txreceipt-bank-logo {
+width: 50px;
+height: 50px;
+}.txreceipt-bank-info h2 {
+font-size: 1.25rem;
+}.txreceipt-amount-value {
+font-size: 2.5rem;
+}.txreceipt-actions {
+grid-template-columns: 1fr;
+}.txreceipt-confirmation {
+flex-direction: column;
+text-align: center;
+}.txreceipt-section {
+padding: 1.5rem;
+}
+}@media (max-width: 480px) {
+.txreceipt-amount-value {
+font-size: 2rem;
+}.txreceipt-detail-row {
+flex-direction: column;
+align-items: flex-start;
+gap: 0.5rem;
+}.txreceipt-value {
+text-align: left;
+}
+}/* Print Styles */
+@media print {
+.txreceipt-page {
+background: white;
+}.txreceipt-back-btn,
+.txreceipt-actions {
+display: none;
+}.txreceipt-card {
+box-shadow: none;
+border: 2px solid #003366;
+}
+}

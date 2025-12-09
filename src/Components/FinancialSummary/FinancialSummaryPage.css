@@ -1,0 +1,1531 @@
+/* ==================== Financial Summary Page - Navy Federal Credit Union ==================== */
+/* Official Colors: Navy Blue #003865, Red #C8102E, White #FFFFFF */
+
+.fin-sum-page {
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', 'Open Sans', Arial, sans-serif;
+}
+
+/* ==================== Header Section ==================== */
+.fin-sum-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #003865 0%, #004a7c 100%);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 56, 101, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.fin-sum-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(200, 16, 46, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.fin-sum-header-left {
+  position: relative;
+  z-index: 1;
+}
+
+.fin-sum-header-left h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.fin-sum-header-left p {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.fin-sum-header-actions {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.fin-sum-btn-toggle,
+.fin-sum-btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  white-space: nowrap;
+}
+
+.fin-sum-btn-toggle {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.fin-sum-btn-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.fin-sum-btn-primary {
+  background: linear-gradient(135deg, #C8102E 0%, #a00d25 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(200, 16, 46, 0.3);
+}
+
+.fin-sum-btn-primary:hover {
+  background: linear-gradient(135deg, #a00d25 0%, #8a0b20 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.4);
+}
+
+/* ==================== Loading State ==================== */
+.fin-sum-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.fin-sum-spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(0, 56, 101, 0.1);
+  border-top-color: #003865;
+  border-right-color: #C8102E;
+  border-radius: 50%;
+  animation: fin-sum-spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+@keyframes fin-sum-spin {
+  to { transform: rotate(360deg); }
+}
+
+.fin-sum-loading p {
+  margin-top: 1.5rem;
+  color: #003865;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* ==================== Filters Section ==================== */
+.fin-sum-filters {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  background: white;
+  padding: 1.75rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 56, 101, 0.08);
+}
+
+.fin-sum-filter-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.fin-sum-filter-group label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #003865;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fin-sum-select {
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #374151;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.fin-sum-select:hover {
+  border-color: #003865;
+}
+
+.fin-sum-select:focus {
+  outline: none;
+  border-color: #003865;
+  box-shadow: 0 0 0 3px rgba(0, 56, 101, 0.1);
+}
+
+/* ==================== Financial Health Score ==================== */
+.fin-sum-health-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 56, 101, 0.08);
+}
+
+.fin-sum-health-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  color: #003865;
+}
+
+.fin-sum-health-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: #003865;
+}
+
+.fin-sum-health-score {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.fin-sum-score-circle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.fin-sum-score-circle svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.fin-sum-score-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.fin-sum-score-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #003865;
+  line-height: 1;
+  display: block;
+}
+
+.fin-sum-score-label {
+  font-size: 1.25rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.fin-sum-health-details {
+  flex: 1;
+}
+
+.fin-sum-health-status {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #003865;
+  margin: 0 0 1rem 0;
+}
+
+.fin-sum-health-description {
+  font-size: 1.05rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==================== Metrics Grid ==================== */
+.fin-sum-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.fin-sum-metric-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 56, 101, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.fin-sum-metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #003865 0%, #C8102E 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fin-sum-metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 56, 101, 0.15);
+}
+
+.fin-sum-metric-card:hover::before {
+  opacity: 1;
+}
+
+.fin-sum-metric-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.fin-sum-metric-icon.fin-sum-blue {
+  background: linear-gradient(135deg, #003865 0%, #004a7c 100%);
+  color: white;
+}
+
+.fin-sum-metric-icon.fin-sum-green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.fin-sum-metric-icon.fin-sum-red {
+  background: linear-gradient(135deg, #C8102E 0%, #a00d25 100%);
+  color: white;
+}
+
+.fin-sum-metric-icon.fin-sum-orange {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+}
+
+.fin-sum-metric-content {
+  flex: 1;
+}
+
+.fin-sum-metric-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fin-sum-metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003865;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.fin-sum-metric-value.fin-sum-positive {
+  color: #10b981;
+}
+
+.fin-sum-metric-value.fin-sum-negative {
+  color: #C8102E;
+}
+
+.fin-sum-metric-subtitle {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* ==================== Charts Section ==================== */
+.fin-sum-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.fin-sum-chart-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 56, 101, 0.08);
+}
+
+.fin-sum-chart-card.fin-sum-chart-wide {
+  grid-column: 1 / -1;
+}
+
+.fin-sum-chart-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #003865;
+  margin: 0 0 1.5rem 0;
+}
+
+.fin-sum-chart-container {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.fin-sum-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #f3f4f6;
+}
+
+.fin-sum-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.fin-sum-legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+/* ==================== Accounts Section ==================== */
+.fin-sum-accounts-section {
+  margin-bottom: 2rem;
+}
+
+.fin-sum-accounts-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #003865;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fin-sum-accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.fin-sum-account-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 56, 101, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.fin-sum-account-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #003865 0%, #C8102E 100%);
+}
+
+.fin-sum-account-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 56, 101, 0.15);
+}
+
+.fin-sum-account-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.fin-sum-account-type {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #003865;
+  margin: 0 0 0.25rem 0;
+}
+
+.fin-sum-account-number {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+  margin: 0;
+}
+
+.fin-sum-account-badge {
+  padding: 0.4rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fin-sum-account-badge.checking {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+}
+
+.fin-sum-account-badge.savings {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.fin-sum-account-badge.credit {
+  background: rgba(200, 16, 46, 0.1);
+  color: #C8102E;
+}
+
+.fin-sum-account-badge.investment {
+  background: rgba(139, 92, 246, 0.1);
+  color: #7c3aed;
+}
+
+.fin-sum-account-balance {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.fin-sum-account-balance-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fin-sum-account-balance-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003865;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.fin-sum-account-interest {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* ==================== Transactions Section ==================== */
+.fin-sum-transactions-section {
+  margin-bottom: 2rem;
+}
+
+.fin-sum-transactions-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #003865;
+  margin-bottom: 1.5rem;
+}
+
+.fin-sum-transactions-list {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid rgba(0, 56, 101, 0.08);
+}
+
+.fin-sum-transaction-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.3s ease;
+}
+
+.fin-sum-transaction-item:last-child {
+  border-bottom: none;
+}
+
+.fin-sum-transaction-item:hover {
+  background: #f8f9fa;
+}
+
+.fin-sum-transaction-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fin-sum-icon-credit {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.fin-sum-icon-debit {
+  background: rgba(200, 16, 46, 0.1);
+  color: #C8102E;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.fin-sum-transaction-details {
+  flex: 1;
+}
+
+.fin-sum-transaction-description {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.25rem 0;
+}
+
+.fin-sum-transaction-meta {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.fin-sum-transaction-amount {
+  font-size: 1.25rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.fin-sum-transaction-amount.fin-sum-positive {
+  color: #10b981;
+}
+
+.fin-sum-transaction-amount.fin-sum-negative {
+  color: #C8102E;
+}
+
+/* ==================== Goals Section ==================== */
+.fin-sum-goals-section {
+  margin-bottom: 2rem;
+}
+
+.fin-sum-goals-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #003865;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fin-sum-goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.fin-sum-goal-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 56, 101, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fin-sum-goal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 56, 101, 0.15);
+}
+
+.fin-sum-goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.fin-sum-goal-header h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #003865;
+  margin: 0;
+  flex: 1;
+}
+
+.fin-sum-goal-status {
+  padding: 0.4rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fin-sum-goal-status.active {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.fin-sum-goal-status.completed {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+}
+
+.fin-sum-goal-status.pending {
+  background: rgba(251, 191, 36, 0.1);
+  color: #d97706;
+}
+
+.fin-sum-goal-progress {
+  margin-bottom: 1rem;
+}
+
+.fin-sum-goal-amounts {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.fin-sum-progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.fin-sum-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #003865 0%, #10b981 100%);
+  border-radius: 6px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fin-sum-goal-percentage {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+}
+
+.fin-sum-goal-deadline {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ==================== Loans Section ==================== */
+.fin-sum-loans-section {
+  margin-bottom: 2rem;
+}
+
+.fin-sum-loans-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #003865;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fin-sum-loans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.fin-sum-loan-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 56, 101, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.fin-sum-loan-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #C8102E 0%, #003865 100%);
+}
+
+.fin-sum-loan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 56, 101, 0.15);
+}
+
+.fin-sum-loan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.fin-sum-loan-header h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #003865;
+  margin: 0;
+}
+
+.fin-sum-loan-status {
+  padding: 0.4rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fin-sum-loan-status.active {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.fin-sum-loan-status.approved {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+}
+
+.fin-sum-loan-status.pending {
+  background: rgba(251, 191, 36, 0.1);
+  color: #d97706;
+}
+
+.fin-sum-loan-details {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.fin-sum-loan-detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0, 56, 101, 0.1);
+}
+
+.fin-sum-loan-detail-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.fin-sum-loan-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.fin-sum-loan-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #003865;
+}
+
+.fin-sum-loan-progress {
+  margin-top: 1rem;
+}
+
+.fin-sum-loan-progress-fill {
+  background: linear-gradient(90deg, #C8102E 0%, #003865 100%);
+}
+
+.fin-sum-loan-percentage {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* ==================== Insights Section ==================== */
+.fin-sum-insights-section {
+  margin-bottom: 2rem;
+}
+
+.fin-sum-insights-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #003865;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fin-sum-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.fin-sum-insight-card {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 4px solid;
+}
+
+.fin-sum-insight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.fin-sum-insight-card.fin-sum-warning {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border-left-color: #f59e0b;
+}
+
+.fin-sum-insight-card.fin-sum-info {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-left-color: #3b82f6;
+}
+
+.fin-sum-insight-card.fin-sum-success {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-left-color: #10b981;
+}
+
+.fin-sum-insight-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.fin-sum-insight-card.fin-sum-warning .fin-sum-insight-icon {
+  background: #f59e0b;
+  color: white;
+}
+
+.fin-sum-insight-card.fin-sum-info .fin-sum-insight-icon {
+  background: #3b82f6;
+  color: white;
+}
+
+.fin-sum-insight-card.fin-sum-success .fin-sum-insight-icon {
+  background: #10b981;
+  color: white;
+}
+
+.fin-sum-insight-content {
+  flex: 1;
+}
+
+.fin-sum-insight-content h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #003865;
+  margin: 0 0 0.75rem 0;
+}
+
+.fin-sum-insight-content p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0 0 0.75rem 0;
+}
+
+.fin-sum-insight-content p:last-child {
+  margin-bottom: 0;
+}
+
+.fin-sum-insight-action {
+  font-weight: 600;
+  color: #003865;
+  padding-top: 0.5rem;
+  border-top: 2px solid rgba(0, 56, 101, 0.1);
+  margin-top: 0.75rem !important;
+}
+
+/* ==================== Comparison Section ==================== */
+.fin-sum-comparison-section {
+  margin-bottom: 2rem;
+}
+
+.fin-sum-comparison-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #003865;
+  margin-bottom: 1.5rem;
+}
+
+.fin-sum-comparison-table {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid rgba(0, 56, 101, 0.08);
+}
+
+.fin-sum-comparison-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fin-sum-comparison-table thead {
+  background: linear-gradient(135deg, #003865 0%, #004a7c 100%);
+}
+
+.fin-sum-comparison-table th {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.fin-sum-comparison-table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.3s ease;
+}
+
+.fin-sum-comparison-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.fin-sum-comparison-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.fin-sum-comparison-table td {
+  padding: 1.25rem 1.5rem;
+  font-size: 0.95rem;
+  color: #374151;
+  font-weight: 500;
+  border: none;
+}
+
+.fin-sum-savings-badge {
+  padding: 0.4rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.fin-sum-savings-badge.fin-sum-good {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.fin-sum-savings-badge.fin-sum-fair {
+  background: rgba(251, 191, 36, 0.1);
+  color: #d97706;
+}
+
+.fin-sum-savings-badge.fin-sum-poor {
+  background: rgba(200, 16, 46, 0.1);
+  color: #C8102E;
+}
+
+/* ==================== Footer Section ==================== */
+.fin-sum-footer {
+  background: linear-gradient(135deg, #003865 0%, #004a7c 100%);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 56, 101, 0.2);
+  margin-top: 2rem;
+}
+
+.fin-sum-footer-content {
+  text-align: center;
+  color: white;
+}
+
+.fin-sum-footer-content p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.fin-sum-footer-content strong {
+  color: white;
+  font-weight: 700;
+}
+
+/* ==================== Color Utilities ==================== */
+.fin-sum-positive {
+  color: #10b981 !important;
+}
+
+.fin-sum-negative {
+  color: #C8102E !important;
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 1400px) {
+  .fin-sum-charts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .fin-sum-chart-card.fin-sum-chart-wide {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .fin-sum-page {
+    padding: 1.5rem;
+  }
+
+  .fin-sum-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
+  .fin-sum-header-left h1 {
+    font-size: 2rem;
+  }
+
+  .fin-sum-header-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .fin-sum-header-actions button {
+    flex: 1;
+  }
+
+  .fin-sum-metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .fin-sum-health-score {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .fin-sum-insights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fin-sum-loans-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .fin-sum-page {
+    padding: 1rem;
+  }
+
+  .fin-sum-header {
+    padding: 1.5rem;
+  }
+
+  .fin-sum-header-left h1 {
+    font-size: 1.75rem;
+  }
+
+  .fin-sum-header-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .fin-sum-filters {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .fin-sum-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .fin-sum-metric-card {
+    padding: 1.5rem;
+  }
+
+  .fin-sum-metric-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .fin-sum-metric-value {
+    font-size: 1.75rem;
+  }
+
+  .fin-sum-charts-grid {
+    gap: 1.5rem;
+  }
+
+  .fin-sum-chart-card {
+    padding: 1.5rem;
+  }
+
+  .fin-sum-chart-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .fin-sum-accounts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fin-sum-goals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fin-sum-transaction-item {
+    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .fin-sum-transaction-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .fin-sum-transaction-amount {
+    font-size: 1.1rem;
+  }
+
+  .fin-sum-insight-card {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .fin-sum-comparison-table {
+    overflow-x: auto;
+  }
+
+  .fin-sum-comparison-table table {
+    min-width: 600px;
+  }
+
+  .fin-sum-comparison-table th,
+  .fin-sum-comparison-table td {
+    padding: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .fin-sum-footer {
+    padding: 2rem 1.5rem;
+  }
+
+  .fin-sum-footer-content p {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .fin-sum-header-left h1 {
+    font-size: 1.5rem;
+  }
+
+  .fin-sum-header-left p {
+    font-size: 0.9rem;
+  }
+
+  .fin-sum-btn-toggle,
+  .fin-sum-btn-primary {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .fin-sum-health-card {
+    padding: 1.5rem;
+  }
+
+  .fin-sum-score-circle {
+    width: 140px;
+    height: 140px;
+  }
+
+  .fin-sum-score-number {
+    font-size: 2.5rem;
+  }
+
+  .fin-sum-health-status {
+    font-size: 1.5rem;
+  }
+
+  .fin-sum-health-description {
+    font-size: 0.95rem;
+  }
+
+  .fin-sum-account-card,
+  .fin-sum-loan-card,
+  .fin-sum-goal-card {
+    padding: 1.5rem;
+  }
+
+  .fin-sum-account-balance-value {
+    font-size: 1.75rem;
+  }
+
+  .fin-sum-transaction-description {
+    font-size: 0.95rem;
+  }
+
+  .fin-sum-transaction-meta {
+    font-size: 0.8rem;
+  }
+}
+
+/* ==================== Print Styles ==================== */
+@media print {
+  .fin-sum-page {
+    background: white;
+    padding: 0;
+  }
+
+  .fin-sum-header-actions,
+  .fin-sum-filters,
+  .fin-sum-btn-toggle,
+  .fin-sum-btn-primary {
+    display: none !important;
+  }
+
+  .fin-sum-header {
+    background: white;
+    color: #003865;
+    box-shadow: none;
+    border: 2px solid #003865;
+  }
+
+  .fin-sum-header-left h1,
+  .fin-sum-header-left p {
+    color: #003865;
+  }
+
+  .fin-sum-chart-card,
+  .fin-sum-metric-card,
+  .fin-sum-account-card,
+  .fin-sum-insight-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* ==================== Animations ==================== */
+@keyframes fin-sum-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fin-sum-metric-card,
+.fin-sum-chart-card,
+.fin-sum-account-card,
+.fin-sum-goal-card,
+.fin-sum-loan-card,
+.fin-sum-insight-card {
+  animation: fin-sum-fadeIn 0.5s ease-out forwards;
+}
+
+.fin-sum-metric-card:nth-child(1) { animation-delay: 0.05s; }
+.fin-sum-metric-card:nth-child(2) { animation-delay: 0.1s; }
+.fin-sum-metric-card:nth-child(3) { animation-delay: 0.15s; }
+.fin-sum-metric-card:nth-child(4) { animation-delay: 0.2s; }
+.fin-sum-metric-card:nth-child(5) { animation-delay: 0.25s; }
+.fin-sum-metric-card:nth-child(6) { animation-delay: 0.3s; }
+
+/* ==================== Custom Scrollbar ==================== */
+.fin-sum-page::-webkit-scrollbar {
+  width: 12px;
+}
+
+.fin-sum-page::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.fin-sum-page::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #003865 0%, #C8102E 100%);
+  border-radius: 10px;
+}
+
+.fin-sum-page::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #004a7c 0%, #a00d25 100%);
+}
+
+/* ==================== Focus Styles for Accessibility ==================== */
+.fin-sum-btn-toggle:focus,
+.fin-sum-btn-primary:focus,
+.fin-sum-select:focus {
+  outline: 3px solid rgba(0, 56, 101, 0.3);
+  outline-offset: 2px;
+}
+
+/* ==================== Hover Effects Enhancement ==================== */
+.fin-sum-metric-card:hover .fin-sum-metric-icon {
+  transform: scale(1.1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fin-sum-account-card:hover .fin-sum-account-type {
+  color: #C8102E;
+  transition: color 0.3s ease;
+}
+
+.fin-sum-goal-card:hover .fin-sum-progress-fill,
+.fin-sum-loan-card:hover .fin-sum-loan-progress-fill {
+  box-shadow: 0 0 20px rgba(0, 56, 101, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+/* ==================== Loading Skeleton (Optional Enhancement) ==================== */
+.fin-sum-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: fin-sum-loading 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+@keyframes fin-sum-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ==================== Tooltip Styles (Optional) ==================== */
+.fin-sum-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.fin-sum-tooltip .fin-sum-tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #003865;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.fin-sum-tooltip:hover .fin-sum-tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ==================== Dark Mode Support (Optional) ==================== */
+@media (prefers-color-scheme: dark) {
+  .fin-sum-page {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  }
+
+  .fin-sum-metric-card,
+  .fin-sum-chart-card,
+  .fin-sum-account-card,
+  .fin-sum-goal-card,
+  .fin-sum-loan-card,
+  .fin-sum-transactions-list,
+  .fin-sum-comparison-table {
+    background: #1f2937;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .fin-sum-metric-value,
+  .fin-sum-account-type,
+  .fin-sum-goal-header h4,
+  .fin-sum-loan-header h4,
+  .fin-sum-transaction-description {
+    color: #f9fafb;
+  }
+
+  .fin-sum-metric-label,
+  .fin-sum-account-number,
+  .fin-sum-transaction-meta {
+    color: #9ca3af;
+  }
+}
+
+/* ==================== END OF CSS ==================== */

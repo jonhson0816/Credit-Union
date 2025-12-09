@@ -1,0 +1,636 @@
+/* ========================================
+   NAVY FEDERAL CREDIT UNION - REGISTER PAGE
+   Modern, Interactive, Professional Design
+   Icons positioned on the RIGHT side
+   ======================================== */
+
+/* CSS Variables - Navy Federal Color Palette */
+:root {
+  --navy-primary: #003366;
+  --navy-dark: #002244;
+  --navy-light: #004a99;
+  --gold-accent: #FFB81C;
+  --gold-hover: #FFA500;
+  --white: #FFFFFF;
+  --light-gray: #F5F7FA;
+  --medium-gray: #E0E6ED;
+  --text-dark: #1A2332;
+  --text-gray: #5A6C7D;
+  --success: #28A745;
+  --error: #DC3545;
+  --shadow-sm: 0 2px 4px rgba(0, 51, 102, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 51, 102, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 51, 102, 0.2);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container - Full Page Background */
+.reg020-register-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 50%, var(--navy-light) 100%);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated Background Pattern */
+.reg020-register-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 184, 28, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 184, 28, 0.08) 0%, transparent 50%);
+  animation: backgroundMove 20s ease infinite;
+  pointer-events: none;
+}
+
+@keyframes backgroundMove {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* Main Wrapper */
+.reg020-register-wrapper {
+  width: 100%;
+  max-width: 520px;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: slideUp 0.6s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form Styles */
+.reg020-register-form {
+  padding: 40px 35px;
+}
+
+/* Header Section */
+.reg020-register-header {
+  text-align: center;
+  margin-bottom: 35px;
+  padding-bottom: 25px;
+  border-bottom: 3px solid var(--gold-accent);
+  position: relative;
+}
+
+.reg020-register-header::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--navy-primary);
+}
+
+.reg020-register-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy-primary);
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.reg020-register-header p {
+  font-size: 15px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+/* Error Message */
+.reg020-error-message {
+  background: linear-gradient(135deg, #DC3545 0%, #C82333 100%);
+  color: var(--white);
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+  animation: shake 0.5s ease;
+  border-left: 4px solid #A71D2A;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+/* Profile Image Upload */
+.reg020-profile-image-upload {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.reg020-image-preview-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--gold-accent);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  background: var(--light-gray);
+}
+
+.reg020-image-preview-container:hover {
+  transform: scale(1.08);
+  border-color: var(--gold-hover);
+  box-shadow: 0 8px 20px rgba(255, 184, 28, 0.4);
+}
+
+.reg020-image-preview-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 51, 102, 0.1);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.reg020-image-preview-container:hover::after {
+  opacity: 1;
+}
+
+.reg020-profile-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reg020-profile-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy-primary);
+  font-size: 13px;
+  font-weight: 600;
+  gap: 8px;
+}
+
+.reg020-profile-placeholder svg {
+  color: var(--gold-accent);
+}
+
+/* Form Groups */
+.reg020-form-group {
+  margin-bottom: 22px;
+}
+
+.reg020-name-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+/* Input Wrapper with Icon - ICON ON RIGHT */
+.reg020-input-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.reg020-input-icon {
+  position: absolute;
+  right: 16px;
+  color: var(--navy-primary);
+  pointer-events: none;
+  transition: var(--transition);
+  z-index: 1;
+}
+
+/* Input Styles - PADDING ON LEFT, ICON ON RIGHT */
+.reg020-input,
+.reg020-inputs {
+  width: 100%;
+  padding: 14px 50px 14px 16px;
+  border: 2px solid var(--medium-gray);
+  border-radius: 12px;
+  font-size: 15px;
+  color: var(--text-dark);
+  background: var(--white);
+  transition: var(--transition);
+  font-family: inherit;
+  outline: none;
+}
+
+.reg020-input:focus,
+.reg020-inputs:focus {
+  border-color: var(--navy-primary);
+  background: var(--light-gray);
+  box-shadow: 0 0 0 4px rgba(0, 51, 102, 0.1);
+}
+
+.reg020-input:focus ~ .reg020-input-icon,
+.reg020-inputs:focus ~ .reg020-input-icon {
+  color: var(--gold-accent);
+  transform: scale(1.1);
+}
+
+.reg020-input::placeholder,
+.reg020-inputs::placeholder {
+  color: var(--text-gray);
+}
+
+/* Date Input Specific */
+.reg020-date-input {
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.reg020-date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(16%) sepia(89%) saturate(2476%) hue-rotate(193deg);
+}
+
+/* Password Group */
+.reg020-password-group {
+  position: relative;
+}
+
+.reg020-password-toggle {
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-gray);
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.reg020-password-toggle:hover {
+  color: var(--navy-primary);
+  background: var(--light-gray);
+}
+
+.reg020-password-toggle:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Password Requirements */
+.reg020-password-requirements {
+  font-size: 12px;
+  color: var(--text-gray);
+  margin-top: 8px;
+  padding-left: 4px;
+  font-weight: 500;
+}
+
+/* Account Type Group */
+.reg020-account-type-group .reg020-input-icon-wrapper {
+  background: var(--light-gray);
+  border: 2px solid var(--medium-gray);
+  border-radius: 12px;
+  padding: 18px 16px;
+  transition: var(--transition);
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.reg020-account-type-group .reg020-input-icon-wrapper:hover {
+  border-color: var(--navy-light);
+  background: var(--white);
+}
+
+.reg020-account-type-group .reg020-input-icon {
+  position: static;
+  margin-bottom: 12px;
+  color: var(--gold-accent);
+  right: auto;
+}
+
+.reg020-account-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Checkbox Labels */
+.reg020-checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: var(--transition);
+  user-select: none;
+  background: var(--white);
+  border: 1px solid transparent;
+}
+
+.reg020-checkbox-label:hover {
+  background: var(--light-gray);
+  border-color: var(--navy-light);
+  transform: translateX(4px);
+}
+
+.reg020-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  cursor: pointer;
+  accent-color: var(--navy-primary);
+  border: 2px solid var(--navy-primary);
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.reg020-checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.reg020-checkbox:checked {
+  background-color: var(--navy-primary);
+}
+
+.reg020-checkbox-text {
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* Register Button */
+.reg020-register-button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-light) 100%);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 10px;
+  margin-bottom: 25px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.reg020-register-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.reg020-register-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 51, 102, 0.4);
+  background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy-primary) 100%);
+}
+
+.reg020-register-button:hover::before {
+  left: 100%;
+}
+
+.reg020-register-button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.reg020-register-button:disabled {
+  background: var(--medium-gray);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Login Section */
+.reg020-login-section {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--medium-gray);
+}
+
+.reg020-login-section p {
+  font-size: 14px;
+  color: var(--text-gray);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.reg020-login-link {
+  display: inline-block;
+  color: var(--navy-primary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  transition: var(--transition);
+  border: 2px solid var(--navy-primary);
+}
+
+.reg020-login-link:hover {
+  background: var(--navy-primary);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Features Section */
+.reg020-register-features {
+  display: flex;
+  justify-content: space-around;
+  padding: 25px 35px;
+  background: linear-gradient(135deg, var(--light-gray) 0%, var(--medium-gray) 100%);
+  border-top: 3px solid var(--gold-accent);
+}
+
+.reg020-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--navy-primary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.reg020-feature-icon {
+  color: var(--gold-accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Default Account Notice */
+.reg020-default-account-notice {
+  background-color: #f0f9ff;
+  border-left: 4px solid #0066cc;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #004080;
+  font-weight: 500;
+}
+
+.reg020-default-account-notice::before {
+  content: '';
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .reg020-register-container {
+    padding: 20px 15px;
+  }
+
+  .reg020-register-form {
+    padding: 30px 25px;
+  }
+
+  .reg020-register-header h2 {
+    font-size: 24px;
+  }
+
+  .reg020-register-header p {
+    font-size: 14px;
+  }
+
+  .reg020-name-group {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .reg020-image-preview-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .reg020-register-features {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .reg020-register-header h2 {
+    font-size: 22px;
+  }
+
+  .reg020-input,
+  .reg020-inputs {
+    padding: 12px 46px 12px 14px;
+    font-size: 14px;
+  }
+
+  .reg020-register-button {
+    font-size: 15px;
+    padding: 14px;
+  }
+
+  .reg020-checkbox-text {
+    font-size: 13px;
+  }
+
+  .reg020-password-toggle {
+    right: 48px;
+  }
+}
+
+/* Loading State Animation */
+.reg020-register-button:disabled {
+  position: relative;
+  color: transparent;
+}
+
+.reg020-register-button:disabled::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 3px solid var(--white);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Accessibility Improvements */
+.reg020-input:focus-visible,
+.reg020-inputs:focus-visible,
+.reg020-register-button:focus-visible,
+.reg020-login-link:focus-visible {
+  outline: 3px solid var(--gold-accent);
+  outline-offset: 2px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Color */
+::selection {
+  background: var(--gold-accent);
+  color: var(--navy-dark);
+}

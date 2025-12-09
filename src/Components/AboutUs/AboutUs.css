@@ -1,0 +1,348 @@
+/* AboutUs.css - Navy Federal Credit Union About Page Styles */
+
+/* Color Variables */
+:root {
+  --navy-primary: #003865;
+  --navy-dark: #002244;
+  --navy-light: #004a7c;
+  --gold-accent: #FFB81C;
+  --gold-dark: #E6A300;
+  --white: #FFFFFF;
+  --light-gray: #F5F7FA;
+  --medium-gray: #E1E8ED;
+  --text-gray: #4A5568;
+  --text-dark: #1A202C;
+}
+
+/* Container */
+.about-container {
+  width: 100%;
+}
+
+/* Hero Section */
+.about-hero {
+  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-dark) 100%);
+  color: var(--white);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.about-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.about-hero-subtitle {
+  font-size: 1.35rem;
+  opacity: 0.95;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Mission Section */
+.about-mission-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.about-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.about-section-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--navy-primary);
+}
+
+.about-section-header h2 {
+  font-size: 2.5rem;
+  color: var(--navy-primary);
+  font-weight: 700;
+}
+
+.about-mission-text {
+  font-size: 1.3rem;
+  line-height: 1.9;
+  color: var(--text-gray);
+  text-align: center;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+/* Values Section */
+.about-values-section {
+  background-color: var(--light-gray);
+  padding: 5rem 2rem;
+}
+
+.about-section-title {
+  font-size: 2.8rem;
+  color: var(--navy-primary);
+  margin-bottom: 3rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.about-values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-value-card {
+  background-color: var(--white);
+  padding: 2.5rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.about-value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  border-color: var(--gold-accent);
+}
+
+.about-value-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--gold-accent);
+  margin: 0 auto 1.5rem;
+}
+
+.about-value-card h3 {
+  font-size: 1.75rem;
+  color: var(--navy-primary);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.about-value-card p {
+  color: var(--text-gray);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Stats Section */
+.about-stats-section {
+  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-dark) 100%);
+  color: var(--white);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.about-stats-title {
+  font-size: 2.8rem;
+  color: var(--white);
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-stat-item {
+  text-align: center;
+  padding: 1rem;
+}
+
+.about-stat-number {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--gold-accent);
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.about-stat-label {
+  font-size: 1.15rem;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+/* History Section */
+.about-history-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.about-history-text {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: var(--text-gray);
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Benefits Section */
+.about-benefits-section {
+  background-color: var(--light-gray);
+  padding: 5rem 2rem;
+}
+
+.about-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-benefit-item {
+  background-color: var(--white);
+  padding: 2.5rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.about-benefit-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  border-color: var(--navy-primary);
+}
+
+.about-benefit-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
+  color: var(--navy-dark);
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 4px 12px rgba(255, 184, 28, 0.3);
+}
+
+.about-benefit-item h3 {
+  font-size: 1.5rem;
+  color: var(--navy-primary);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.about-benefit-item p {
+  color: var(--text-gray);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .about-hero-title {
+    font-size: 2.8rem;
+  }
+
+  .about-section-title {
+    font-size: 2.3rem;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 4rem 1.5rem;
+  }
+
+  .about-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .about-hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .about-section-title {
+    font-size: 2rem;
+  }
+
+  .about-section-header h2 {
+    font-size: 2rem;
+  }
+
+  .about-section-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .about-mission-text {
+    font-size: 1.1rem;
+  }
+
+  .about-values-grid,
+  .about-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-stat-number {
+    font-size: 2.5rem;
+  }
+
+  .about-mission-section,
+  .about-history-section,
+  .about-values-section,
+  .about-stats-section,
+  .about-benefits-section {
+    padding: 3.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .about-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .about-section-title {
+    font-size: 1.75rem;
+  }
+
+  .about-value-card,
+  .about-benefit-item {
+    padding: 2rem;
+  }
+}

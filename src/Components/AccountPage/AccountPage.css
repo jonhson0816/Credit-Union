@@ -1,0 +1,966 @@
+/* ============================================
+   NAVY FEDERAL CREDIT UNION - OFFICIAL BRAND COLORS
+   Primary Navy: #003d6a (Official NFCU Navy Blue)
+   Secondary Gold: #fdb913 (Official NFCU Gold)
+   Accent Blue: #0066b3
+   Success Green: #2d7e3e
+   Alert Red: #d32f2f
+   Neutral Gray: #f5f5f5
+   ============================================ */
+
+/* Root Variables - Official NFCU Colors */
+:root {
+  --nfcu-primary-navy: #003d6a;
+  --nfcu-secondary-navy: #002d50;
+  --nfcu-gold: #fdb913;
+  --nfcu-light-blue: #0066b3;
+  --nfcu-success-green: #2d7e3e;
+  --nfcu-alert-red: #d32f2f;
+  --nfcu-warning-orange: #f57c00;
+  --nfcu-neutral-gray: #f5f5f5;
+  --nfcu-text-dark: #1a1a1a;
+  --nfcu-text-light: #ffffff;
+  --nfcu-border-gray: #e0e0e0;
+  --nfcu-shadow: rgba(0, 61, 106, 0.1);
+  --nfcu-shadow-hover: rgba(0, 61, 106, 0.2);
+}
+
+/* Global Styles */
+.hed-0011-account-page {
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  background: linear-gradient(135deg, var(--nfcu-neutral-gray) 0%, #ffffff 100%);
+  min-height: 100vh;
+  padding: 2rem;
+  color: var(--nfcu-text-dark);
+}
+
+/* Loading & Error States */
+.hed-0011-loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.25rem;
+  color: var(--nfcu-primary-navy);
+  font-weight: 600;
+}
+
+.hed-0011-error {
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  color: var(--nfcu-alert-red);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--nfcu-alert-red);
+  margin-bottom: 2rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
+}
+
+/* Header Section */
+.hed-0011-account-header {
+  background: linear-gradient(135deg, var(--nfcu-primary-navy) 0%, var(--nfcu-secondary-navy) 100%);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px var(--nfcu-shadow-hover);
+  margin-bottom: 2.5rem;
+  border: 2px solid var(--nfcu-gold);
+}
+
+.hed-0011-profile-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hed-0011-profile-avatar {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 4px solid var(--nfcu-gold);
+  box-shadow: 0 6px 20px rgba(253, 185, 19, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hed-0011-profile-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 28px rgba(253, 185, 19, 0.5);
+}
+
+.hed-0011-user-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hed-0011-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--nfcu-gold) 0%, #f9a825 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--nfcu-primary-navy);
+}
+
+.hed-0011-upload-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 61, 106, 0.9);
+  color: var(--nfcu-gold);
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hed-0011-profile-avatar:hover .hed-0011-upload-overlay {
+  opacity: 1;
+}
+
+.hed-0011-profile-info h1 {
+  color: var(--nfcu-text-light);
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hed-0011-account-owner-info {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hed-0011-account-owner-info p {
+  color: var(--nfcu-text-light);
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--nfcu-gold);
+}
+
+/* Accounts Overview Section */
+.hed-0011-accounts-overview {
+  margin-bottom: 2.5rem;
+}
+
+.hed-0011-accounts-overview h2 {
+  color: var(--nfcu-primary-navy);
+  font-size: 1.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid var(--nfcu-gold);
+}
+
+.hed-0011-icon {
+  color: var(--nfcu-gold);
+  width: 28px;
+  height: 28px;
+}
+
+.hed-0011-accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Account Cards */
+.hed-0011-account-card {
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px var(--nfcu-shadow);
+  border: 2px solid var(--nfcu-border-gray);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hed-0011-account-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--nfcu-primary-navy) 0%, var(--nfcu-gold) 100%);
+}
+
+.hed-0011-clickable-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px var(--nfcu-shadow-hover);
+  border-color: var(--nfcu-gold);
+}
+
+.hed-0011-inactive-account {
+  opacity: 0.7;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+}
+
+.hed-0011-account-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--nfcu-border-gray);
+}
+
+.hed-0011-account-header h3 {
+  color: var(--nfcu-primary-navy);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.hed-0011-account-number {
+  color: var(--nfcu-text-dark);
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: var(--nfcu-neutral-gray);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.hed-0011-account-balance h4 {
+  color: var(--nfcu-primary-navy);
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  text-shadow: 1px 1px 2px var(--nfcu-shadow);
+}
+
+.hed-0011-account-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hed-0011-detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background: var(--nfcu-neutral-gray);
+  border-radius: 6px;
+}
+
+.hed-0011-detail-label {
+  color: var(--nfcu-text-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.hed-0011-detail-value {
+  color: var(--nfcu-primary-navy);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.hed-0011-overdraft-tag {
+  background: linear-gradient(135deg, var(--nfcu-success-green) 0%, #1b5e20 100%);
+  color: var(--nfcu-text-light);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(45, 126, 62, 0.3);
+}
+
+/* Button Styles */
+.hed-0011-button-group {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.hed-0011-transfer-btn,
+.hed-0011-deposit-btn,
+.hed-0011-deactivate-btn,
+.hed-0011-delete-btn,
+.hed-0011-reactivate-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hed-0011-transfer-btn {
+  background: linear-gradient(135deg, var(--nfcu-primary-navy) 0%, var(--nfcu-secondary-navy) 100%);
+  color: var(--nfcu-text-light);
+}
+
+.hed-0011-transfer-btn:hover {
+  background: linear-gradient(135deg, var(--nfcu-secondary-navy) 0%, var(--nfcu-primary-navy) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 61, 106, 0.3);
+}
+
+.hed-0011-deposit-btn {
+  background: linear-gradient(135deg, var(--nfcu-gold) 0%, #f9a825 100%);
+  color: var(--nfcu-primary-navy);
+}
+
+.hed-0011-deposit-btn:hover {
+  background: linear-gradient(135deg, #f9a825 0%, var(--nfcu-gold) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(253, 185, 19, 0.4);
+}
+
+/* Add Account Section */
+.hed-0011-add-account-section {
+  background: linear-gradient(135deg, #ffffff 0%, var(--nfcu-neutral-gray) 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px var(--nfcu-shadow);
+  margin-bottom: 2.5rem;
+  border: 2px solid var(--nfcu-border-gray);
+  border-left: 6px solid var(--nfcu-gold);
+}
+
+.hed-0011-section-title {
+  color: var(--nfcu-primary-navy);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid var(--nfcu-gold);
+}
+
+/* Financial Insights Section */
+.hed-0011-financial-insights {
+  margin-bottom: 2.5rem;
+}
+
+.hed-0011-financial-insights h2 {
+  color: var(--nfcu-primary-navy);
+  font-size: 1.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid var(--nfcu-gold);
+}
+
+.hed-0011-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.hed-0011-insight-card {
+  background: linear-gradient(135deg, var(--nfcu-primary-navy) 0%, var(--nfcu-secondary-navy) 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px var(--nfcu-shadow-hover);
+  text-align: center;
+  border: 2px solid var(--nfcu-gold);
+  transition: all 0.3s ease;
+}
+
+.hed-0011-insight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px var(--nfcu-shadow-hover);
+}
+
+.hed-0011-insight-card h3 {
+  color: var(--nfcu-text-light);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hed-0011-insight-value {
+  color: var(--nfcu-gold);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Financial Goals Section */
+.hed-0011-financial-goals {
+  margin-bottom: 2.5rem;
+}
+
+.hed-0011-financial-goals h2 {
+  color: var(--nfcu-primary-navy);
+  font-size: 1.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid var(--nfcu-gold);
+}
+
+.hed-0011-goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.hed-0011-goal-card {
+  background: linear-gradient(135deg, #ffffff 0%, var(--nfcu-neutral-gray) 100%);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px var(--nfcu-shadow);
+  border: 2px solid var(--nfcu-border-gray);
+  border-left: 6px solid var(--nfcu-gold);
+  transition: all 0.3s ease;
+}
+
+.hed-0011-goal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px var(--nfcu-shadow-hover);
+  border-color: var(--nfcu-gold);
+}
+
+.hed-0011-goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.hed-0011-goal-header h3 {
+  color: var(--nfcu-primary-navy);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.hed-0011-goal-category {
+  background: linear-gradient(135deg, var(--nfcu-gold) 0%, #f9a825 100%);
+  color: var(--nfcu-primary-navy);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.hed-0011-progress-text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--nfcu-text-dark);
+}
+
+.hed-0011-progress-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--nfcu-border-gray);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hed-0011-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--nfcu-primary-navy) 0%, var(--nfcu-gold) 100%);
+  transition: width 0.5s ease;
+  box-shadow: 0 2px 8px rgba(0, 61, 106, 0.3);
+}
+
+.hed-0011-goal-amounts {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--nfcu-text-dark);
+  font-weight: 600;
+}
+
+/* Transaction Chart Section */
+.hed-0011-transaction-chart {
+  background: linear-gradient(135deg, #ffffff 0%, var(--nfcu-neutral-gray) 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px var(--nfcu-shadow);
+  margin-bottom: 2.5rem;
+  border: 2px solid var(--nfcu-border-gray);
+}
+
+.hed-0011-transaction-chart h2 {
+  color: var(--nfcu-primary-navy);
+  font-size: 1.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid var(--nfcu-gold);
+}
+
+.hed-0011-section-header {
+  margin-bottom: 2rem;
+}
+
+.hed-0011-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.hed-0011-summary-card {
+  background: linear-gradient(135deg, var(--nfcu-primary-navy) 0%, var(--nfcu-secondary-navy) 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px var(--nfcu-shadow-hover);
+  border: 2px solid var(--nfcu-gold);
+}
+
+.hed-0011-summary-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--nfcu-text-light);
+}
+
+.hed-0011-summary-value.hed-0011-credits {
+  color: var(--nfcu-gold);
+}
+
+.hed-0011-summary-value.hed-0011-debits {
+  color: #ffcdd2;
+}
+
+.hed-0011-summary-label {
+  color: var(--nfcu-text-light);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hed-0011-view-all-link {
+  background: linear-gradient(135deg, var(--nfcu-gold) 0%, #f9a825 100%);
+  color: var(--nfcu-primary-navy);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(253, 185, 19, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hed-0011-view-all-link:hover {
+  background: linear-gradient(135deg, #f9a825 0%, var(--nfcu-gold) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(253, 185, 19, 0.5);
+}
+
+/* Chart Container */
+.hed-0011-chart-container {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px var(--nfcu-shadow);
+  border: 1px solid var(--nfcu-border-gray);
+}
+
+/* Date Filter */
+.hed-0011-date-filter {
+  background: var(--nfcu-neutral-gray);
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--nfcu-border-gray);
+}
+
+.hed-0011-date-input {
+  padding: 0.75rem;
+  border: 2px solid var(--nfcu-border-gray);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--nfcu-text-dark);
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.hed-0011-date-input:focus {
+  outline: none;
+  border-color: var(--nfcu-gold);
+  box-shadow: 0 0 0 3px rgba(253, 185, 19, 0.2);
+}
+
+/* Print Button */
+.hed-0011-print-btn {
+  background: linear-gradient(135deg, var(--nfcu-primary-navy) 0%, var(--nfcu-secondary-navy) 100%);
+  color: var(--nfcu-text-light);
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--nfcu-gold);
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px var(--nfcu-shadow-hover);
+}
+
+.hed-0011-print-btn:hover {
+  background: linear-gradient(135deg, var(--nfcu-secondary-navy) 0%, var(--nfcu-primary-navy) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--nfcu-shadow-hover);
+}
+
+/* Transactions Table */
+.hed-0011-transactions-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--nfcu-shadow);
+}
+
+.hed-0011-transactions-table thead {
+  background: linear-gradient(135deg, var(--nfcu-primary-navy) 0%, var(--nfcu-secondary-navy) 100%);
+}
+
+.hed-0011-transactions-table th {
+  color: var(--nfcu-text-light);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  border-bottom: 3px solid var(--nfcu-gold);
+}
+
+.hed-0011-transactions-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--nfcu-border-gray);
+  color: var(--nfcu-text-dark);
+  font-size: 0.95rem;
+}
+
+.hed-0011-transactions-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.hed-0011-transactions-table tbody tr:hover {
+  background: var(--nfcu-neutral-gray);
+  transform: scale(1.01);
+}
+
+/* Modal Styles */
+.hed-0011-transfer-modal,
+.hed-0011-deposit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 61, 106, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.hed-0011-transfer-modal-content,
+.hed-0011-deposit-modal-content {
+  background: linear-gradient(135deg, #ffffff 0%, var(--nfcu-neutral-gray) 100%);
+  padding: 2.5rem;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 12px 40px rgba(0, 61, 106, 0.3);
+  border: 3px solid var(--nfcu-gold);
+}
+
+.hed-0011-transfer-modal-content h2,
+.hed-0011-deposit-modal-content h2 {
+  color: var(--nfcu-primary-navy);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--nfcu-gold);
+}
+
+.hed-0011-transfer-modal-content input,
+.hed-0011-deposit-modal-content input {
+  width: 100%;
+  padding: 0.875rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--nfcu-border-gray);
+  border-radius: 10px;
+  font-size: 1rem;
+  color: var(--nfcu-text-dark);
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.hed-0011-transfer-modal-content input:focus,
+.hed-0011-deposit-modal-content input:focus {
+  outline: none;
+  border-color: var(--nfcu-gold);
+  box-shadow: 0 0 0 3px rgba(253, 185, 19, 0.2);
+}
+
+.hed-0011-modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.hed-0011-confirm-transfer,
+.hed-0011-confirm-deposit {
+  flex: 1;
+  background: linear-gradient(135deg, var(--nfcu-primary-navy) 0%, var(--nfcu-secondary-navy) 100%);
+  color: var(--nfcu-text-light);
+  padding: 1rem;
+  border: 2px solid var(--nfcu-gold);
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px var(--nfcu-shadow-hover);
+}
+
+.hed-0011-confirm-transfer:hover,
+.hed-0011-confirm-deposit:hover {
+  background: linear-gradient(135deg, var(--nfcu-secondary-navy) 0%, var(--nfcu-primary-navy) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--nfcu-shadow-hover);
+}
+
+.hed-0011-confirm-transfer:disabled,
+.hed-0011-confirm-deposit:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+  border-color: #999999;
+}
+
+.hed-0011-cancel-transfer,
+.hed-0011-cancel-deposit {
+  flex: 1;
+  background: linear-gradient(135deg, var(--nfcu-alert-red) 0%, #b71c1c 100%);
+  color: var(--nfcu-text-light);
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.hed-0011-cancel-transfer:hover,
+.hed-0011-cancel-deposit:hover {
+  background: linear-gradient(135deg, #b71c1c 0%, var(--nfcu-alert-red) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(211, 47, 47, 0.5);
+}
+
+/* Input Group Styles */
+.hed-0011-input-group {
+  margin-bottom: 1.5rem;
+}
+
+.hed-0011-input-group label {
+  display: block;
+  color: var(--nfcu-primary-navy);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hed-0011-deposit-details {
+  margin-bottom: 1.5rem;
+}
+
+/* Utility Classes */
+.hed-0011-mt-8 {
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hed-0011-accounts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .hed-0011-insights-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .hed-0011-account-page {
+    padding: 1rem;
+  }
+  
+  .hed-0011-profile-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hed-0011-profile-info h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hed-0011-account-owner-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .hed-0011-accounts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hed-0011-summary-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hed-0011-button-group {
+    flex-direction: column;
+  }
+  
+  .hed-0011-modal-actions {
+    flex-direction: column;
+  }
+  
+  .hed-0011-date-filter {
+    flex-direction: column;
+  }
+  
+  .hed-0011-transactions-table {
+    font-size: 0.85rem;
+  }
+  
+  .hed-0011-transactions-table th,
+  .hed-0011-transactions-table td {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hed-0011-profile-avatar {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .hed-0011-avatar-placeholder {
+    font-size: 2rem;
+  }
+  
+  .hed-0011-account-header h2,
+  .hed-0011-financial-insights h2,
+  .hed-0011-financial-goals h2,
+  .hed-0011-transaction-chart h2 {
+    font-size: 1.5rem;
+  }
+  
+  .hed-0011-account-balance h4 {
+    font-size: 1.75rem;
+  }
+  
+  .hed-0011-insight-value {
+    font-size: 2rem;
+  }
+}
+
+/* Animation for page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hed-0011-account-card,
+.hed-0011-insight-card,
+.hed-0011-goal-card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nfcu-neutral-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--nfcu-primary-navy) 0%, var(--nfcu-gold) 100%);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--nfcu-gold) 0%, var(--nfcu-primary-navy) 100%);
+}
+
+/* Print Styles */
+@media print {
+  .hed-0011-button-group,
+  .hed-0011-print-btn,
+  .hed-0011-upload-overlay,
+  .hed-0011-date-filter {
+    display: none !important;
+  }
+  
+  .hed-0011-account-page {
+    background: white;
+  }
+  
+  .hed-0011-account-card {
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,488 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+  
+  .preloader.phase-2 {
+    background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+  }
+  
+  .preloader.phase-3 {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .preloader-content {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-out;
+    z-index: 2;
+    transform-style: preserve-3d;
+  }
+  
+  .shine-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  /* Logo container and animation */
+  .logo-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    perspective: 1000px;
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+    z-index: 5;
+  }
+  
+  .spinning-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(0, 78, 146, 0.8);
+    animation: spin 12s infinite linear, pulse 4s infinite ease-in-out, float 6s infinite ease-in-out;
+    backface-visibility: hidden;
+  }
+  
+  .logo-shadow {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 10px;
+    background: radial-gradient(ellipse at center, rgba(0, 78, 146, 0.6) 0%, rgba(0, 78, 146, 0) 70%);
+    border-radius: 50%;
+    filter: blur(5px);
+    animation: shadow-pulse 4s infinite ease-in-out;
+  }
+  
+  /* Glowing rings around logo */
+  .glowing-rings {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+  }
+  
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    box-shadow: 0 0 15px rgba(0, 174, 255, 0.6);
+    animation: ring-rotate 60s infinite linear, ring-pulse 4s infinite ease-in-out;
+    pointer-events: none;
+  }
+  
+  .ring-1 {
+    width: 160px;
+    height: 160px;
+    border-top: 2px solid rgba(0, 195, 255, 0.8);
+    border-left: 2px solid rgba(0, 195, 255, 0.4);
+    animation-duration: 20s;
+  }
+  
+  .ring-2 {
+    width: 220px;
+    height: 220px;
+    border-right: 2px solid rgba(0, 195, 255, 0.8);
+    border-bottom: 2px solid rgba(0, 195, 255, 0.4);
+    animation-duration: 30s;
+    animation-direction: reverse;
+  }
+  
+  .ring-3 {
+    width: 280px;
+    height: 280px;
+    border-bottom: 2px solid rgba(0, 195, 255, 0.8);
+    border-right: 2px solid rgba(0, 195, 255, 0.4);
+    animation-duration: 40s;
+  }
+  
+  /* Loading text animation */
+  .loading-text {
+    margin-top: 40px;
+    display: flex;
+    gap: 2px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    letter-spacing: 3px;
+    z-index: 5;
+  }
+  
+  .loading-text span {
+    display: inline-block;
+    color: white;
+    font-size: 18px;
+    text-shadow: 0 0 10px rgba(0, 174, 255, 0.8);
+    animation: text-glow 2s infinite ease-in-out;
+  }
+  
+  /* Progress bar */
+  .progress-container {
+    margin-top: 30px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+  }
+  
+  .progress-track {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00a1ff, #00ff8f);
+    border-radius: 3px;
+    position: relative;
+    transition: width 0.3s ease;
+  }
+  
+  .progress-glow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 161, 255, 0), #00a1ff 50%, rgba(0, 255, 143, 0.8));
+    filter: blur(5px);
+    animation: progress-glow 2s infinite ease-in-out;
+    transform: translateX(0px);
+  }
+  
+  .progress-percentage {
+    margin-top: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 174, 255, 0.8);
+  }
+  
+  /* Decorative elements */
+  .decorative-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  .orbit {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: orbit-rotate 40s infinite linear;
+  }
+  
+  .satellite {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #00a1ff, #0062ff);
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px rgba(0, 161, 255, 0.8);
+    animation: satellite-pulse 2s infinite ease-in-out;
+  }
+  
+  .floating-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+  .floating-shape {
+    position: absolute;
+    background: linear-gradient(135deg, rgba(0, 161, 255, 0.2), rgba(0, 255, 143, 0.1));
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 20px rgba(0, 161, 255, 0.3);
+    animation: float-move 10s infinite ease-in-out;
+  }
+  
+  .shape-1 {
+    width: 40px;
+    height: 40px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+    transform: rotate(15deg);
+  }
+  
+  .shape-2 {
+    width: 30px;
+    height: 30px;
+    top: 70%;
+    left: 15%;
+    animation-delay: 1s;
+    transform: rotate(45deg);
+  }
+  
+  .shape-3 {
+    width: 25px;
+    height: 25px;
+    top: 30%;
+    right: 15%;
+    animation-delay: 2s;
+    transform: rotate(30deg);
+  }
+  
+  .shape-4 {
+    width: 35px;
+    height: 35px;
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 3s;
+    transform: rotate(60deg);
+  }
+  
+  .shape-5 {
+    width: 20px;
+    height: 20px;
+    bottom: 40%;
+    left: 25%;
+    animation-delay: 4s;
+    transform: rotate(75deg);
+  }
+  
+  /* Animations */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  @keyframes shadow-pulse {
+    0%, 100% {
+      opacity: 0.5;
+      transform: translateX(-50%) scale(1);
+    }
+    50% {
+      opacity: 0.3;
+      transform: translateX(-50%) scale(1.2);
+    }
+  }
+  
+  @keyframes ring-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes ring-pulse {
+    0%, 100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes text-glow {
+    0%, 100% {
+      opacity: 0.8;
+      filter: brightness(1);
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      filter: brightness(1.5);
+      transform: translateY(-5px);
+    }
+  }
+  
+  @keyframes progress-glow {
+    0%, 100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes orbit-rotate {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  
+  @keyframes satellite-pulse {
+    0%, 100% {
+      transform: translateX(-50%) scale(1);
+      box-shadow: 0 0 20px rgba(0, 161, 255, 0.8);
+    }
+    50% {
+      transform: translateX(-50%) scale(1.3);
+      box-shadow: 0 0 25px rgba(0, 161, 255, 1);
+    }
+  }
+  
+  @keyframes float-move {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(10px, 15px) rotate(5deg);
+    }
+    50% {
+      transform: translate(0, 30px) rotate(10deg);
+    }
+    75% {
+      transform: translate(-10px, 15px) rotate(5deg);
+    }
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .preloader-content {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .logo-container {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .ring-1 {
+      width: 140px;
+      height: 140px;
+    }
+    
+    .ring-2 {
+      width: 180px;
+      height: 180px;
+    }
+    
+    .ring-3 {
+      width: 220px;
+      height: 220px;
+    }
+    
+    .progress-container {
+      width: 220px;
+    }
+    
+    .orbit {
+      width: 260px;
+      height: 260px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .preloader-content {
+      width: 250px;
+      height: 250px;
+    }
+    
+    .logo-container {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .loading-text span {
+      font-size: 16px;
+    }
+    
+    .ring-1 {
+      width: 120px;
+      height: 120px;
+    }
+    
+    .ring-2 {
+      width: 160px;
+      height: 160px;
+    }
+    
+    .ring-3 {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .progress-container {
+      width: 180px;
+    }
+    
+    .orbit {
+      width: 200px;
+      height: 200px;
+    }
+  }

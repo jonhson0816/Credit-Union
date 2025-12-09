@@ -1,0 +1,783 @@
+/* Navy Federal Credit Union - Navbar Styling */
+
+/* Color Variables */
+:root {
+  --nfcu-navy-primary: #003f87;
+  --nfcu-navy-dark: #002855;
+  --nfcu-navy-light: #0052a5;
+  --nfcu-gold: #f7b71d;
+  --nfcu-gold-dark: #d99f17;
+  --white: #ffffff;
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #eeeeee;
+  --gray-300: #e0e0e0;
+  --gray-600: #757575;
+  --gray-700: #616161;
+  --gray-800: #424242;
+  --success-green: #00a86b;
+  --danger-red: #d32f2f;
+}
+
+/* Navbar Container */
+.nav-101-navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(0, 63, 135, 0.15);
+}
+
+/* Main Navbar */
+.nav-101-navbar {
+  background: linear-gradient(135deg, var(--nfcu-navy-primary) 0%, var(--nfcu-navy-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  position: relative;
+  border-bottom: 3px solid var(--nfcu-gold);
+}
+
+/* Navbar Brand Section */
+.nav-101-navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.nav-101-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-101-logo-link:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.nav-101-logo {
+  height: 50px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.nav-101-logo:hover {
+  box-shadow: 0 6px 20px rgba(247, 183, 29, 0.4);
+}
+
+.nav-101-navbar-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Sidebar Toggle Button */
+.nav-101-sidebar-toggle {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  padding: 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.nav-101-sidebar-toggle:hover {
+  background: var(--nfcu-gold);
+  border-color: var(--nfcu-gold);
+  color: var(--nfcu-navy-dark);
+  transform: scale(1.05);
+}
+
+.nav-101-sidebar-toggle.nav-101-active {
+  background: var(--nfcu-gold);
+  border-color: var(--nfcu-gold);
+  color: var(--nfcu-navy-dark);
+  transform: rotate(90deg);
+}
+
+/* Navbar Center - Greeting */
+.nav-101-navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.nav-101-user-greeting {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  border: 2px solid rgba(247, 183, 29, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nav-101-user-greeting:hover {
+  background: rgba(247, 183, 29, 0.15);
+  border-color: var(--nfcu-gold);
+  transform: scale(1.02);
+}
+
+.nav-101-greeting-text {
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar Actions */
+.nav-101-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.nav-101-action-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* User Profile Image */
+.nav-101-user-profile-image {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-101-profile-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 3px solid var(--nfcu-gold);
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nav-101-profile-avatar:hover {
+  transform: scale(1.1);
+  border-color: var(--white);
+  box-shadow: 0 6px 20px rgba(247, 183, 29, 0.5);
+}
+
+/* Icon Buttons */
+.nav-101-icon-button {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  padding: 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.nav-101-icon-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nav-101-notification-button {
+  position: relative;
+}
+
+.nav-101-notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--danger-red);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  min-width: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(211, 47, 47, 0.4);
+  animation: nav-101-pulse 2s infinite;
+}
+
+@keyframes nav-101-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.nav-101-logout-button:hover {
+  background: var(--danger-red);
+  border-color: var(--danger-red);
+}
+
+/* Auth Links (Login/Register when not authenticated) */
+.nav-101-nav-auth-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.nav-101-nav-auth-link:hover {
+  background: var(--nfcu-gold);
+  border-color: var(--nfcu-gold);
+  color: var(--nfcu-navy-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(247, 183, 29, 0.4);
+}
+
+/* Dropdown Menu */
+.nav-101-navbar-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, var(--nfcu-navy-dark) 0%, var(--nfcu-navy-primary) 100%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  animation: nav-101-slideDown 0.3s ease;
+  border-bottom: 3px solid var(--nfcu-gold);
+  z-index: 998;
+}
+
+@keyframes nav-101-slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Scrollbar for Dropdown */
+.nav-101-navbar-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.nav-101-navbar-dropdown::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.nav-101-navbar-dropdown::-webkit-scrollbar-thumb {
+  background: var(--nfcu-gold);
+  border-radius: 4px;
+}
+
+.nav-101-navbar-dropdown::-webkit-scrollbar-thumb:hover {
+  background: var(--nfcu-gold-dark);
+}
+
+/* Dropdown Navigation */
+.nav-101-dropdown-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.5rem;
+  padding: 1.5rem;
+}
+
+/* Dropdown Links */
+.nav-101-dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.nav-101-dropdown-link:hover {
+  background: rgba(247, 183, 29, 0.15);
+  border-color: var(--nfcu-gold);
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(247, 183, 29, 0.2);
+}
+
+.nav-101-dropdown-link.nav-101-active {
+  background: var(--nfcu-gold);
+  color: var(--nfcu-navy-dark);
+  border-color: var(--nfcu-gold);
+  font-weight: 800;
+  box-shadow: 0 4px 16px rgba(247, 183, 29, 0.4);
+}
+
+.nav-101-dropdown-link.nav-101-active:hover {
+  transform: translateX(8px) scale(1.02);
+}
+
+.nav-101-dropdown-link svg {
+  flex-shrink: 0;
+}
+
+.nav-101-dropdown-link.nav-101-logout-button {
+  background: rgba(211, 47, 47, 0.15);
+  border-color: transparent;
+  margin-top: 0.5rem;
+}
+
+.nav-101-dropdown-link.nav-101-logout-button:hover {
+  background: var(--danger-red);
+  border-color: var(--danger-red);
+  color: var(--white);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nav-101-navbar {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .nav-101-navbar-center {
+    padding: 0 1rem;
+  }
+
+  .nav-101-navbar-title {
+    font-size: 1.2rem;
+  }
+
+  .nav-101-greeting-text {
+    font-size: 1rem;
+  }
+
+  .nav-101-dropdown-nav {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-101-navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-101-navbar-title {
+    font-size: 1rem;
+  }
+
+  .nav-101-logo {
+    height: 40px;
+  }
+
+  /* Hide greeting on mobile */
+  .nav-101-navbar-center {
+    display: none;
+  }
+
+  .nav-101-action-icons {
+    gap: 0.75rem;
+  }
+
+  .nav-101-profile-avatar {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-101-icon-button {
+    padding: 0.6rem;
+  }
+
+  .nav-101-nav-auth-link {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .nav-101-nav-auth-link span {
+    display: none;
+  }
+
+  /* Single column dropdown on mobile */
+  .nav-101-dropdown-nav {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .nav-101-dropdown-link {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-101-navbar-brand {
+    gap: 1rem;
+  }
+
+  .nav-101-navbar-title {
+    display: none;
+  }
+
+  .nav-101-logo {
+    height: 36px;
+  }
+
+  .nav-101-sidebar-toggle {
+    padding: 0.6rem;
+  }
+
+  .nav-101-action-icons {
+    gap: 0.5rem;
+  }
+
+  .nav-101-profile-avatar {
+    width: 35px;
+    height: 35px;
+    border-width: 2px;
+  }
+
+  .nav-101-icon-button {
+    padding: 0.5rem;
+  }
+
+  .nav-101-notification-badge {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+    min-width: 16px;
+  }
+
+  .nav-101-dropdown-link {
+    padding: 0.85rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Accessibility */
+.nav-101-icon-button:focus,
+.nav-101-sidebar-toggle:focus,
+.nav-101-nav-auth-link:focus,
+.nav-101-dropdown-link:focus {
+  outline: 3px solid var(--nfcu-gold);
+  outline-offset: 2px;
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  .nav-101-navbar-dropdown {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .nav-101-navbar-container {
+    display: none !important;
+  }
+}
+
+/* Loading State */
+.nav-101-navbar.nav-101-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Smooth Transitions */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-101-navbar *,
+.nav-101-navbar-dropdown * {
+  box-sizing: border-box;
+}
+
+/* Enhanced Focus States for Keyboard Navigation */
+.nav-101-sidebar-toggle:focus-visible,
+.nav-101-icon-button:focus-visible,
+.nav-101-nav-auth-link:focus-visible,
+.nav-101-dropdown-link:focus-visible {
+  outline: 3px solid var(--nfcu-gold);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(247, 183, 29, 0.2);
+}
+
+/* Smooth Scroll for Dropdown */
+.nav-101-navbar-dropdown {
+  scroll-behavior: smooth;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .nav-101-navbar {
+    border-bottom-width: 4px;
+  }
+
+  .nav-101-dropdown-link {
+    border-width: 3px;
+  }
+
+  .nav-101-icon-button,
+  .nav-101-nav-auth-link {
+    border-width: 3px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .nav-101-navbar *,
+  .nav-101-navbar-dropdown * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .nav-101-notification-badge {
+    animation: none;
+  }
+
+  .nav-101-dropdown-link:hover,
+  .nav-101-icon-button:hover {
+    transform: none;
+  }
+}
+
+/* Fallback for older browsers */
+@supports not (backdrop-filter: blur(10px)) {
+  .nav-101-icon-button,
+  .nav-101-sidebar-toggle,
+  .nav-101-nav-auth-link,
+  .nav-101-user-greeting {
+    background: rgba(0, 63, 135, 0.8);
+  }
+
+  .nav-101-dropdown-link {
+    background: rgba(0, 63, 135, 0.6);
+  }
+}
+
+/* Security Modal Styles */
+.security-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.security-modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-width: 450px;
+  width: 90%;
+  animation: slideUp 0.3s ease-out;
+  overflow: hidden;
+}
+
+.security-modal-header {
+  background: linear-gradient(135deg, #003366 0%, #004080 100%);
+  color: white;
+  padding: 25px;
+  text-align: center;
+  position: relative;
+}
+
+.security-modal-header svg {
+  margin-bottom: 10px;
+}
+
+.security-modal-header h2 {
+  margin: 10px 0 0 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.security-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.security-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.security-modal-body {
+  padding: 30px;
+}
+
+.security-modal-body p {
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.security-input-group {
+  margin-bottom: 20px;
+}
+
+.security-input-group label {
+  display: block;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.security-input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.security-input-group input:focus {
+  outline: none;
+  border-color: #003366;
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+}
+
+.security-error-message {
+  background: #fee;
+  color: #c33;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border-left: 4px solid #c33;
+}
+
+.security-modal-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.security-cancel-btn,
+.security-submit-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+.security-cancel-btn {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.security-cancel-btn:hover {
+  background: #e0e0e0;
+}
+
+.security-submit-btn {
+  background: linear-gradient(135deg, #003366 0%, #004080 100%);
+  color: white;
+}
+
+.security-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .security-modal-content {
+    width: 95%;
+  }
+
+  .security-modal-body {
+    padding: 20px;
+  }
+
+  .security-modal-actions {
+    flex-direction: column;
+  }
+
+  .security-cancel-btn,
+  .security-submit-btn {
+    width: 100%;
+  }
+}

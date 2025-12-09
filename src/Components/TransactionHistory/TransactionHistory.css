@@ -1,0 +1,859 @@
+/* Navy Federal Color Variables */
+:root {
+  --nfcu-navy-blue: #003865;
+  --nfcu-navy-dark: #002344;
+  --nfcu-red: #C8102E;
+  --nfcu-red-dark: #A00D25;
+  --nfcu-green: #1B7E3D;
+  --nfcu-green-dark: #156530;
+  --nfcu-light-gray: #F5F5F5;
+  --nfcu-medium-gray: #E0E0E0;
+  --nfcu-dark-gray: #666666;
+  --nfcu-white: #FFFFFF;
+  --nfcu-text-primary: #003865;
+  --nfcu-text-secondary: #666666;
+  --nfcu-border-color: #D1D5DB;
+  --nfcu-shadow: 0 2px 8px rgba(0, 56, 101, 0.1);
+  --nfcu-shadow-hover: 0 4px 12px rgba(0, 56, 101, 0.15);
+}
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+.nfcu-transaction-history {
+  /* padding: 2rem; */
+  background-color: var(--nfcu-light-gray);
+  min-height: 100vh;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ============================================
+   CARD CONTAINER
+   ============================================ */
+.nfcu-transaction-card {
+  background: var(--nfcu-white);
+  border-radius: 8px;
+  box-shadow: var(--nfcu-shadow);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.nfcu-transaction-card:hover {
+  box-shadow: var(--nfcu-shadow-hover);
+}
+
+/* ============================================
+   CARD HEADER
+   ============================================ */
+.nfcu-card-header {
+  background: var(--nfcu-navy-blue);
+  color: var(--nfcu-white);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nfcu-header-left {
+  flex: 1;
+}
+
+.nfcu-card-title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--nfcu-white);
+  letter-spacing: -0.5px;
+}
+
+.nfcu-transaction-count {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.875rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.nfcu-header-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.nfcu-btn-primary,
+.nfcu-btn-secondary,
+.nfcu-btn-clear-filters {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Open Sans', Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.nfcu-btn-primary {
+  background: var(--nfcu-red);
+  color: var(--nfcu-white);
+  box-shadow: 0 2px 4px rgba(200, 16, 46, 0.2);
+}
+
+.nfcu-btn-primary:hover {
+  background: var(--nfcu-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(200, 16, 46, 0.3);
+}
+
+.nfcu-btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(200, 16, 46, 0.2);
+}
+
+.nfcu-btn-secondary {
+  background: var(--nfcu-white);
+  color: var(--nfcu-navy-blue);
+  border: 2px solid var(--nfcu-white);
+}
+
+.nfcu-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+}
+
+.nfcu-btn-clear-filters {
+  background: var(--nfcu-red);
+  color: var(--nfcu-white);
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.nfcu-btn-clear-filters:hover {
+  background: var(--nfcu-red-dark);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   CARD CONTENT
+   ============================================ */
+.nfcu-card-content {
+  padding: 2rem;
+}
+
+/* ============================================
+   SUMMARY SECTION
+   ============================================ */
+.nfcu-summary-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.nfcu-summary-card {
+  background: var(--nfcu-white);
+  border: 2px solid var(--nfcu-border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.nfcu-summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--nfcu-shadow-hover);
+}
+
+.nfcu-summary-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.nfcu-summary-card:hover .nfcu-summary-icon {
+  transform: scale(1.1);
+}
+
+.nfcu-credit-card {
+  border-left: 4px solid var(--nfcu-green);
+}
+
+.nfcu-credit-card .nfcu-summary-icon {
+  background: rgba(27, 126, 61, 0.1);
+  color: var(--nfcu-green);
+}
+
+.nfcu-debit-card {
+  border-left: 4px solid var(--nfcu-red);
+}
+
+.nfcu-debit-card .nfcu-summary-icon {
+  background: rgba(200, 16, 46, 0.1);
+  color: var(--nfcu-red);
+}
+
+.nfcu-positive-card {
+  border-left: 4px solid var(--nfcu-green);
+}
+
+.nfcu-positive-card .nfcu-summary-icon {
+  background: rgba(27, 126, 61, 0.1);
+  color: var(--nfcu-green);
+}
+
+.nfcu-negative-card {
+  border-left: 4px solid var(--nfcu-red);
+}
+
+.nfcu-negative-card .nfcu-summary-icon {
+  background: rgba(200, 16, 46, 0.1);
+  color: var(--nfcu-red);
+}
+
+.nfcu-summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.nfcu-summary-label {
+  font-size: 0.75rem;
+  color: var(--nfcu-text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.nfcu-summary-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--nfcu-navy-blue);
+  line-height: 1.2;
+}
+
+.nfcu-credit-card .nfcu-summary-value {
+  color: var(--nfcu-green);
+}
+
+.nfcu-debit-card .nfcu-summary-value {
+  color: var(--nfcu-red);
+}
+
+.nfcu-positive-card .nfcu-summary-value {
+  color: var(--nfcu-green);
+}
+
+.nfcu-negative-card .nfcu-summary-value {
+  color: var(--nfcu-red);
+}
+
+.nfcu-summary-count {
+  font-size: 0.75rem;
+  color: var(--nfcu-text-secondary);
+}
+
+/* ============================================
+   FILTERS SECTION
+   ============================================ */
+.nfcu-filters-section {
+  background: var(--nfcu-light-gray);
+  border: 1px solid var(--nfcu-border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.nfcu-filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.nfcu-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nfcu-filter-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--nfcu-navy-blue);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.nfcu-filter-input {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 2px solid var(--nfcu-border-color);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: var(--nfcu-text-primary);
+  background: var(--nfcu-white);
+  transition: all 0.3s ease;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.nfcu-filter-input:focus {
+  outline: none;
+  border-color: var(--nfcu-navy-blue);
+  box-shadow: 0 0 0 3px rgba(0, 56, 101, 0.1);
+}
+
+.nfcu-filter-input:hover {
+  border-color: var(--nfcu-navy-blue);
+}
+
+.nfcu-search-group {
+  position: relative;
+}
+
+.nfcu-search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nfcu-search-icon {
+  position: absolute;
+  left: 0.875rem;
+  color: var(--nfcu-text-secondary);
+  pointer-events: none;
+}
+
+.nfcu-search-input {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.nfcu-clear-search {
+  position: absolute;
+  right: 0.875rem;
+  background: none;
+  border: none;
+  color: var(--nfcu-text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.nfcu-clear-search:hover {
+  background: var(--nfcu-medium-gray);
+  color: var(--nfcu-navy-blue);
+}
+
+/* ============================================
+   CHART SECTION
+   ============================================ */
+.nfcu-chart-section {
+  background: var(--nfcu-white);
+  border: 1px solid var(--nfcu-border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.nfcu-chart-title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--nfcu-navy-blue);
+}
+
+.nfcu-chart-container {
+  width: 100%;
+  height: 300px;
+}
+
+/* ============================================
+   TABLE SECTION
+   ============================================ */
+.nfcu-table-container {
+  background: var(--nfcu-white);
+  border: 1px solid var(--nfcu-border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.nfcu-transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.nfcu-transactions-table thead {
+  background: var(--nfcu-navy-blue);
+  color: var(--nfcu-white);
+}
+
+.nfcu-transactions-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.nfcu-transactions-table th.nfcu-sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.nfcu-transactions-table th.nfcu-sortable:hover {
+  background: var(--nfcu-navy-dark);
+}
+
+.nfcu-transactions-table tbody tr {
+  border-bottom: 1px solid var(--nfcu-border-color);
+  transition: background 0.2s ease;
+}
+
+.nfcu-transactions-table tbody tr:hover {
+  background: var(--nfcu-light-gray);
+}
+
+.nfcu-transactions-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.nfcu-transactions-table td {
+  padding: 1rem;
+  color: var(--nfcu-text-primary);
+}
+
+.nfcu-date-cell {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.nfcu-description-cell {
+  font-weight: 500;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nfcu-account-cell {
+  color: var(--nfcu-text-secondary);
+  font-size: 0.8125rem;
+}
+
+.nfcu-amount-cell {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  white-space: nowrap;
+}
+
+.nfcu-amount-cell.nfcu-credit {
+  color: var(--nfcu-green);
+}
+
+.nfcu-amount-cell.nfcu-debit {
+  color: var(--nfcu-red);
+}
+
+.nfcu-balance-cell {
+  font-weight: 600;
+  color: var(--nfcu-navy-blue);
+  white-space: nowrap;
+}
+
+.nfcu-text-right {
+  text-align: right;
+}
+
+/* ============================================
+   BADGES
+   ============================================ */
+.nfcu-category-badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background: var(--nfcu-light-gray);
+  border: 1px solid var(--nfcu-border-color);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--nfcu-navy-blue);
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.nfcu-status-badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.nfcu-status-completed {
+  background: rgba(27, 126, 61, 0.1);
+  color: var(--nfcu-green);
+  border: 1px solid rgba(27, 126, 61, 0.3);
+}
+
+.nfcu-status-pending {
+  background: rgba(255, 193, 7, 0.1);
+  color: #D97706;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.nfcu-status-failed,
+.nfcu-status-cancelled {
+  background: rgba(200, 16, 46, 0.1);
+  color: var(--nfcu-red);
+  border: 1px solid rgba(200, 16, 46, 0.3);
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+.nfcu-loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  gap: 1rem;
+}
+
+.nfcu-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--nfcu-light-gray);
+  border-top-color: var(--nfcu-navy-blue);
+  border-radius: 50%;
+  animation: nfcu-spin 0.8s linear infinite;
+}
+
+@keyframes nfcu-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nfcu-loading-spinner p {
+  color: var(--nfcu-text-secondary);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* ============================================
+   ERROR STATE
+   ============================================ */
+.nfcu-error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  gap: 1rem;
+  text-align: center;
+}
+
+.nfcu-error-message p {
+  color: var(--nfcu-red);
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.nfcu-no-transactions {
+  padding: 0 !important;
+}
+
+.nfcu-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  gap: 1rem;
+  text-align: center;
+}
+
+.nfcu-empty-state svg {
+  color: var(--nfcu-medium-gray);
+  opacity: 0.5;
+}
+
+.nfcu-empty-state p {
+  color: var(--nfcu-text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+  .nfcu-transaction-history {
+    padding: 1.5rem;
+  }
+
+  .nfcu-card-content {
+    padding: 1.5rem;
+  }
+
+  .nfcu-summary-section {
+    grid-template-columns: 1fr;
+  }
+
+  .nfcu-filters-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nfcu-transaction-history {
+    padding: 1rem;
+  }
+
+  .nfcu-card-header {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nfcu-header-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .nfcu-btn-primary,
+  .nfcu-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nfcu-card-content {
+    padding: 1rem;
+  }
+
+  .nfcu-card-title {
+    font-size: 1.5rem;
+  }
+
+  .nfcu-summary-card {
+    padding: 1rem;
+  }
+
+  .nfcu-summary-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .nfcu-summary-value {
+    font-size: 1.5rem;
+  }
+
+  .nfcu-filters-section {
+    padding: 1rem;
+  }
+
+  .nfcu-chart-section {
+    padding: 1rem;
+  }
+
+  .nfcu-chart-container {
+    height: 250px;
+  }
+
+  .nfcu-table-container {
+    overflow-x: auto;
+  }
+
+  .nfcu-transactions-table {
+    font-size: 0.8125rem;
+  }
+
+  .nfcu-transactions-table th,
+  .nfcu-transactions-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .nfcu-description-cell {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nfcu-transaction-history {
+    padding: 0.75rem;
+  }
+
+  .nfcu-card-header {
+    padding: 0.75rem;
+  }
+
+  .nfcu-card-content {
+    padding: 0.75rem;
+  }
+
+  .nfcu-card-title {
+    font-size: 1.25rem;
+  }
+
+  .nfcu-summary-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .nfcu-summary-value {
+    font-size: 1.25rem;
+  }
+
+  .nfcu-chart-container {
+    height: 200px;
+  }
+
+  .nfcu-transactions-table th,
+  .nfcu-transactions-table td {
+    padding: 0.5rem 0.375rem;
+    font-size: 0.75rem;
+  }
+
+  .nfcu-description-cell {
+    max-width: 100px;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .nfcu-transaction-history {
+    background: white;
+    padding: 0;
+  }
+
+  .nfcu-card-header {
+    background: white;
+    color: var(--nfcu-navy-blue);
+    border-bottom: 3px solid var(--nfcu-navy-blue);
+  }
+
+  .nfcu-header-actions,
+  .nfcu-filters-section,
+  .nfcu-chart-section {
+    display: none;
+  }
+
+  .nfcu-transactions-table {
+    page-break-inside: auto;
+  }
+
+  .nfcu-transactions-table tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+.nfcu-btn-primary:focus,
+.nfcu-btn-secondary:focus,
+.nfcu-filter-input:focus {
+  outline: 3px solid rgba(0, 56, 101, 0.3);
+  outline-offset: 2px;
+}
+
+.nfcu-transactions-table th.nfcu-sortable:focus {
+  outline: 2px solid white;
+  outline-offset: -2px;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes nfcu-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nfcu-transaction-card {
+  animation: nfcu-fadeIn 0.4s ease-out;
+}
+
+.nfcu-summary-card {
+  animation: nfcu-fadeIn 0.4s ease-out;
+}
+
+.nfcu-summary-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.nfcu-summary-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.nfcu-summary-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.nfcu-transactions-table tbody tr {
+  animation: nfcu-fadeIn 0.3s ease-out;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR (for webkit browsers)
+   ============================================ */
+.nfcu-table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.nfcu-table-container::-webkit-scrollbar-track {
+  background: var(--nfcu-light-gray);
+  border-radius: 4px;
+}
+
+.nfcu-table-container::-webkit-scrollbar-thumb {
+  background: var(--nfcu-navy-blue);
+  border-radius: 4px;
+}
+
+.nfcu-table-container::-webkit-scrollbar-thumb:hover {
+  background: var(--nfcu-navy-dark);
+}

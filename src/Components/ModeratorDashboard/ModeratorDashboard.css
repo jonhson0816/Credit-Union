@@ -1,0 +1,215 @@
+.dashboard-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+  }
+  
+  /* Dashboard Card */
+  .dashboard-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .dashboard-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Header Styles */
+  .dashboard-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #eaeaea;
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+  }
+  
+  .dashboard-content {
+    padding: 2rem;
+  }
+  
+  /* Tabs Styles */
+  .tabs-container {
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 2rem;
+  }
+  
+  .tab-panel {
+    padding: 1rem 0;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Panel Header */
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Table Styles */
+  .table-container {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  
+  .cell-truncate {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Status Badge */
+  .status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    display: inline-block;
+  }
+  
+  .status-active {
+    background-color: #e3f2fd;
+    color: #1976d2;
+  }
+  
+  .status-pending {
+    background-color: #fff3e0;
+    color: #f57c00;
+  }
+  
+  .status-closed {
+    background-color: #e8eaed;
+    color: #5f6368;
+  }
+  
+  /* Action Buttons */
+  .action-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .edit-button {
+    color: #1976d2 !important;
+    border-color: #1976d2 !important;
+  }
+  
+  .delete-button {
+    background-color: #d32f2f !important;
+    color: white !important;
+  }
+  
+  .create-button {
+    background-color: #1976d2 !important;
+    color: white !important;
+    padding: 0.5rem 1rem !important;
+  }
+  
+  .button-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Dialog Styles */
+  .dialog-container {
+    .MuiDialog-paper {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+  }
+  
+  .post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .form-field {
+    margin-bottom: 1rem !important;
+  }
+  
+  .dialog-actions {
+    padding: 1rem 1.5rem !important;
+    background-color: #f8f9fa;
+  }
+  
+  .cancel-button {
+    color: #5f6368 !important;
+  }
+  
+  .submit-button {
+    background-color: #1976d2 !important;
+    color: white !important;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      padding: 1rem;
+    }
+  
+    .dashboard-header {
+      padding: 1rem;
+    }
+  
+    .dashboard-content {
+      padding: 1rem;
+    }
+  
+    .panel-header {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+  
+    .action-buttons {
+      flex-direction: column;
+    }
+  
+    .cell-truncate {
+      max-width: 150px;
+    }
+  }
+  
+  /* Table Hover Effects */
+  .MuiTableRow-root:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }

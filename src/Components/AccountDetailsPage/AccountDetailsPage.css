@@ -1,0 +1,909 @@
+:root {
+  --nfcu-navy-primary: #003f87;
+  --nfcu-navy-dark: #002855;
+  --nfcu-navy-light: #0052a5;
+  --nfcu-gold: #f7b71d;
+  --nfcu-gold-dark: #d99f17;
+  --success-green: #00a86b;
+  --danger-red: #d32f2f;
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #eeeeee;
+  --gray-300: #e0e0e0;
+  --gray-400: #bdbdbd;
+  --gray-600: #757575;
+  --gray-700: #616161;
+  --gray-800: #424242;
+  --white: #ffffff;
+}
+
+/* Main Container */
+.accdeta-006-account-details-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page Header */
+.accdeta-006-page-header {
+  /* margin-top: 3rem; */
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--nfcu-gold);
+}
+
+.accdeta-006-back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--white);
+  border: 2px solid var(--nfcu-navy-primary);
+  color: var(--nfcu-navy-primary);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.accdeta-006-back-button:hover {
+  background: var(--nfcu-navy-primary);
+  color: var(--white);
+  transform: translateX(-4px);
+}
+
+.accdeta-006-page-header h1 {
+  color: var(--nfcu-navy-dark);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Account Summary Card */
+.accdeta-006-account-summary-card {
+  background: linear-gradient(135deg, var(--nfcu-navy-primary) 0%, var(--nfcu-navy-dark) 100%);
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 63, 135, 0.3);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.accdeta-006-account-summary-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(247, 183, 29, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* Account Info Section */
+.accdeta-006-account-info-section {
+  margin-bottom: 2rem;
+}
+
+.accdeta-006-account-type-badge {
+  display: inline-block;
+  background: var(--nfcu-gold);
+  color: var(--nfcu-navy-dark);
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.accdeta-006-account-number {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.accdeta-006-routing-number {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* Balance Section */
+.accdeta-006-balance-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.accdeta-006-balance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.accdeta-006-balance-header span {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.accdeta-006-toggle-balance-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accdeta-006-toggle-balance-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.accdeta-006-balance-amount {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.accdeta-006-interest-rate {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 0.75rem;
+}
+
+.accdeta-006-overdraft-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--success-green);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.accdeta-006-overdraft-badge span {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Quick Actions Grid */
+.accdeta-006-quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.accdeta-006-action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  background: var(--white);
+  color: var(--nfcu-navy-primary);
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.accdeta-006-action-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 63, 135, 0.2);
+  background: var(--nfcu-navy-primary);
+  color: var(--white);
+}
+
+.accdeta-006-action-btn.accdeta-006-secondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.accdeta-006-action-btn.accdeta-006-secondary:hover {
+  background: var(--nfcu-gold);
+  color: var(--nfcu-navy-dark);
+  border-color: var(--nfcu-gold);
+}
+
+/* Statistics Grid */
+.accdeta-006-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.accdeta-006-stat-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--nfcu-navy-primary);
+}
+
+.accdeta-006-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 63, 135, 0.15);
+}
+
+.accdeta-006-stat-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--nfcu-navy-primary);
+  color: var(--white);
+}
+
+.accdeta-006-stat-icon.accdeta-006-credit {
+  background: var(--success-green);
+}
+
+.accdeta-006-stat-icon.accdeta-006-debit {
+  background: var(--danger-red);
+}
+
+.accdeta-006-stat-content {
+  flex: 1;
+}
+
+.accdeta-006-stat-label {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.accdeta-006-stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--nfcu-navy-dark);
+}
+
+.accdeta-006-stat-value.accdeta-006-credit {
+  color: var(--success-green);
+}
+
+.accdeta-006-stat-value.accdeta-006-debit {
+  color: var(--danger-red);
+}
+
+/* Chart Section */
+.accdeta-006-chart-section {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.accdeta-006-chart-section h2 {
+  color: var(--nfcu-navy-dark);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.accdeta-006-chart-container {
+  width: 100%;
+  height: 300px;
+}
+
+/* Filters Section */
+.accdeta-006-filters-section {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.accdeta-006-filters-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--nfcu-navy-dark);
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.accdeta-006-filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.accdeta-006-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.accdeta-006-filter-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--nfcu-navy-dark);
+}
+
+.accdeta-006-filter-input {
+  padding: 0.75rem;
+  border: 2px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.accdeta-006-filter-input:focus {
+  outline: none;
+  border-color: var(--nfcu-navy-primary);
+  box-shadow: 0 0 0 3px rgba(0, 63, 135, 0.1);
+}
+
+.accdeta-006-clear-filters-btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--gray-200);
+  color: var(--gray-700);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.accdeta-006-clear-filters-btn:hover {
+  background: var(--danger-red);
+  color: var(--white);
+}
+
+/* Transactions Section */
+.accdeta-006-transactions-section {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.accdeta-006-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.accdeta-006-section-header h2 {
+  color: var(--nfcu-navy-dark);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.accdeta-006-transaction-count {
+  background: var(--nfcu-gold);
+  color: var(--nfcu-navy-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Transactions Table */
+.accdeta-006-transactions-table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+}
+
+.accdeta-006-transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.accdeta-006-transactions-table thead {
+  background: var(--nfcu-navy-primary);
+  color: var(--white);
+}
+
+.accdeta-006-transactions-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.accdeta-006-transactions-table th.accdeta-006-text-right {
+  text-align: right;
+}
+
+.accdeta-006-transactions-table tbody tr {
+  border-bottom: 1px solid var(--gray-200);
+  transition: all 0.2s ease;
+}
+
+.accdeta-006-transactions-table tbody tr:hover {
+  background: var(--gray-50);
+}
+
+.accdeta-006-transactions-table td {
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: var(--gray-800);
+}
+
+.accdeta-006-transactions-table td.accdeta-006-text-right {
+  text-align: right;
+}
+
+.accdeta-006-transactions-table td.accdeta-006-description {
+  font-weight: 500;
+  color: var(--nfcu-navy-dark);
+}
+
+.accdeta-006-category-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.accdeta-006-type-badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.accdeta-006-type-badge.credit {
+  background: rgba(0, 168, 107, 0.15);
+  color: var(--success-green);
+}
+
+.accdeta-006-type-badge.debit {
+  background: rgba(211, 47, 47, 0.15);
+  color: var(--danger-red);
+}
+
+.accdeta-006-amount.credit {
+  color: var(--success-green);
+  font-weight: 700;
+}
+
+.accdeta-006-amount.debit {
+  color: var(--danger-red);
+  font-weight: 700;
+}
+
+.accdeta-006-balance {
+  font-weight: 600;
+  color: var(--nfcu-navy-dark);
+}
+
+.accdeta-006-no-transactions {
+  text-align: center;
+  padding: 3rem;
+  color: var(--gray-600);
+  font-style: italic;
+}
+
+/* Modal Styles */
+.accdeta-006-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 40, 85, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.accdeta-006-modal-content {
+  background: var(--white);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 550px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.accdeta-006-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 2px solid var(--nfcu-gold);
+  background: linear-gradient(135deg, var(--nfcu-navy-primary) 0%, var(--nfcu-navy-dark) 100%);
+  color: var(--white);
+  border-radius: 16px 16px 0 0;
+}
+
+.accdeta-006-modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.accdeta-006-close-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.accdeta-006-close-btn:hover {
+  background: var(--danger-red);
+  border-color: var(--danger-red);
+  transform: rotate(90deg);
+}
+
+.accdeta-006-modal-content form,
+.accdeta-006-modal-body {
+  padding: 2rem;
+}
+
+.accdeta-006-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.accdeta-006-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--nfcu-navy-dark);
+  font-size: 0.95rem;
+}
+
+.accdeta-006-form-input {
+  width: 100%;
+  padding: 0.85rem;
+  border: 2px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.accdeta-006-form-input:focus {
+  outline: none;
+  border-color: var(--nfcu-navy-primary);
+  box-shadow: 0 0 0 3px rgba(0, 63, 135, 0.1);
+}
+
+textarea.accdeta-006-form-input {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.accdeta-006-modal-actions {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--gray-200);
+  background: var(--gray-50);
+  border-radius: 0 0 16px 16px;
+}
+
+.accdeta-006-btn-primary {
+  flex: 1;
+  padding: 1rem;
+  background: var(--nfcu-navy-primary);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.accdeta-006-btn-primary:hover {
+  background: var(--nfcu-navy-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 63, 135, 0.3);
+}
+
+.accdeta-006-btn-secondary {
+  flex: 1;
+  padding: 1rem;
+  background: var(--white);
+  color: var(--gray-700);
+  border: 2px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.accdeta-006-btn-secondary:hover {
+  background: var(--gray-200);
+  border-color: var(--gray-400);
+}
+
+/* Download Options */
+.accdeta-006-download-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.accdeta-006-download-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: var(--gray-50);
+  border: 2px solid var(--gray-300);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.accdeta-006-download-option-btn:hover {
+  background: var(--nfcu-navy-primary);
+  border-color: var(--nfcu-navy-primary);
+  color: var(--white);
+  transform: translateX(8px);
+}
+
+.accdeta-006-download-option-btn svg {
+  color: var(--nfcu-navy-primary);
+  flex-shrink: 0;
+}
+
+.accdeta-006-download-option-btn:hover svg {
+  color: var(--nfcu-gold);
+}
+
+.accdeta-006-download-option-btn strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.accdeta-006-download-option-btn p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Loading & Error States */
+.accdeta-006-loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  font-size: 1.2rem;
+  color: var(--nfcu-navy-primary);
+  font-weight: 600;
+}
+
+.accdeta-006-error-message {
+  text-align: center;
+  padding: 3rem;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.accdeta-006-error-message p {
+  color: var(--danger-red);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .accdeta-006-account-details-page {
+    padding: 1rem;
+  }
+
+  .accdeta-006-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .accdeta-006-page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .accdeta-006-account-summary-card {
+    padding: 1.5rem;
+  }
+
+  .accdeta-006-balance-amount {
+    font-size: 2rem;
+  }
+
+  .accdeta-006-quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .accdeta-006-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .accdeta-006-filters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .accdeta-006-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .accdeta-006-transactions-table {
+    font-size: 0.85rem;
+  }
+
+  .accdeta-006-transactions-table th,
+  .accdeta-006-transactions-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .accdeta-006-modal-content {
+    max-width: 100%;
+    margin: 1rem;
+  }
+
+  .accdeta-006-modal-actions {
+    flex-direction: column;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .accdeta-006-page-header,
+  .accdeta-006-back-button,
+  .accdeta-006-quick-actions-grid,
+  .accdeta-006-filters-section,
+  .accdeta-006-action-btn {
+    display: none !important;
+  }
+
+  .accdeta-006-account-details-page {
+    background: var(--white);
+  }
+
+  .accdeta-006-account-summary-card {
+    background: var(--white);
+    color: var(--nfcu-navy-dark);
+    border: 2px solid var(--nfcu-navy-primary);
+  }
+}
+
+/* Make transaction rows clickable */
+.accdeta-006-transaction-row {
+  transition: all 0.3s ease;
+}
+
+.accdeta-006-transaction-row:hover {
+  background-color: #FEF3C7 !important;
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+  cursor: pointer;
+}
+
+/* Enhanced Transaction Table Styling */
+.accdeta-006-transactions-table {
+  font-size: 0.9rem;
+}
+
+.accdeta-006-transactions-table thead th {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 16px 12px;
+}
+
+.accdeta-006-transaction-row {
+  transition: all 0.2s ease;
+}
+
+.accdeta-006-transaction-row:hover {
+  background-color: #f9fafb;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.accdeta-006-transactions-table td {
+  padding: 16px 12px;
+  vertical-align: middle;
+}
+
+.accdeta-006-description {
+  max-width: 250px;
+}
+
+.accdeta-006-amount {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+}
+
+.accdeta-006-amount.credit {
+  color: #059669;
+}
+
+.accdeta-006-amount.debit {
+  color: #dc2626;
+}

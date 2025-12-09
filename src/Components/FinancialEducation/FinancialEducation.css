@@ -1,0 +1,813 @@
+/* Navy Federal Credit Union Colors */
+:root {
+  --navy-primary: #003366;
+  --navy-secondary: #005288;
+  --navy-accent: #FFB612;
+  --navy-light: #F5F7FA;
+  --navy-dark: #001F3F;
+  --success: #10b981;
+  --error: #ef4444;
+  --warning: #f59e0b;
+}
+
+/* Loading State */
+.fin-edu-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+}
+
+.fin-edu-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--navy-light);
+  border-top-color: var(--navy-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Main Container */
+.fin-edu-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background-color: #ffffff;
+}
+
+/* Header */
+.fin-edu-header {
+  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-secondary) 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 51, 102, 0.1);
+}
+
+.fin-edu-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.fin-edu-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.fin-edu-header p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.fin-edu-user-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.fin-edu-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.fin-edu-stat strong {
+  display: block;
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.fin-edu-stat span {
+  display: block;
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* Search Bar */
+.fin-edu-search-bar {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.fin-edu-search-bar svg {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+}
+
+.fin-edu-search-bar input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid var(--navy-light);
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.fin-edu-search-bar input:focus {
+  outline: none;
+  border-color: var(--navy-primary);
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+}
+
+/* Categories */
+.fin-edu-categories {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--navy-light);
+}
+
+.fin-edu-category-chip {
+  padding: 0.625rem 1.25rem;
+  border: 2px solid var(--navy-light);
+  background: white;
+  border-radius: 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--navy-dark);
+}
+
+.fin-edu-category-chip:hover {
+  border-color: var(--navy-primary);
+  background: var(--navy-light);
+}
+
+.fin-edu-category-chip.active {
+  background: var(--navy-primary);
+  color: white;
+  border-color: var(--navy-primary);
+}
+
+/* Tabs */
+.fin-edu-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  background: var(--navy-light);
+  padding: 0.5rem;
+  border-radius: 12px;
+}
+
+.fin-edu-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--navy-dark);
+  justify-content: center;
+}
+
+.fin-edu-tab:hover {
+  background: rgba(0, 51, 102, 0.1);
+}
+
+.fin-edu-tab.active {
+  background: white;
+  color: var(--navy-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid Layout */
+.fin-edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Card */
+.fin-edu-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid var(--navy-light);
+}
+
+.fin-edu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 51, 102, 0.15);
+}
+
+.fin-edu-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.fin-edu-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fin-edu-card-content {
+  padding: 1.5rem;
+}
+
+.fin-edu-card-badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.fin-edu-category-badge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fin-edu-category-badge.budgeting {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.fin-edu-category-badge.saving {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.fin-edu-category-badge.credit {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.fin-edu-category-badge.investing {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+.fin-edu-category-badge.loans {
+  background: #fce7f3;
+  color: #9f1239;
+}
+
+.fin-edu-category-badge.insurance {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.fin-edu-category-badge.retirement {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.fin-edu-category-badge.debt.management {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.fin-edu-difficulty-badge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.difficulty-beginner {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.difficulty-intermediate {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.difficulty-advanced {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.fin-edu-card h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+  color: var(--navy-dark);
+  line-height: 1.4;
+}
+
+.fin-edu-card p {
+  margin: 0 0 1rem 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.fin-edu-card-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.fin-edu-card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.fin-edu-completed {
+  color: var(--success) !important;
+  font-weight: 600;
+}
+
+.fin-edu-read-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background: var(--navy-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fin-edu-read-btn:hover {
+  background: var(--navy-secondary);
+  transform: translateY(-2px);
+}
+
+/* Quiz Info */
+.fin-edu-quiz-info {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.fin-edu-quiz-info span {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* Article Detail */
+.fin-edu-article-detail {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.fin-edu-back-btn {
+  margin-bottom: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--navy-light);
+  color: var(--navy-primary);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fin-edu-back-btn:hover {
+  background: var(--navy-primary);
+  color: white;
+}
+
+.fin-edu-article-header {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.fin-edu-article-detail h1 {
+  font-size: 2.5rem;
+  color: var(--navy-dark);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.3;
+}
+
+.fin-edu-article-meta {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--navy-light);
+  color: #6b7280;
+}
+
+.fin-edu-article-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fin-edu-article-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.fin-edu-article-content {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #374151;
+  margin-bottom: 3rem;
+}
+
+.fin-edu-article-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.fin-edu-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border: 2px solid var(--navy-primary);
+  background: white;
+  color: var(--navy-primary);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fin-edu-action-btn:hover {
+  background: var(--navy-light);
+}
+
+.fin-edu-action-btn.primary {
+  background: var(--navy-primary);
+  color: white;
+}
+
+.fin-edu-action-btn.primary:hover {
+  background: var(--navy-secondary);
+}
+
+.fin-edu-action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Quiz Detail */
+.fin-edu-quiz-detail {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.fin-edu-quiz-header {
+  margin-bottom: 2rem;
+}
+
+.fin-edu-quiz-header h1 {
+  font-size: 2rem;
+  color: var(--navy-dark);
+  margin: 0 0 1rem 0;
+}
+
+.fin-edu-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.fin-edu-question-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid var(--navy-light);
+}
+
+.fin-edu-question-card h3 {
+  color: var(--navy-primary);
+  margin: 0 0 1rem 0;
+  font-size: 1.125rem;
+}
+
+.fin-edu-question-text {
+  font-size: 1.125rem;
+  color: var(--navy-dark);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.fin-edu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fin-edu-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--navy-light);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fin-edu-option:hover {
+  border-color: var(--navy-primary);
+  background: var(--navy-light);
+}
+
+.fin-edu-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--navy-primary);
+}
+
+.fin-edu-option input[type="radio"]:checked + span {
+  font-weight: 600;
+  color: var(--navy-primary);
+}
+
+.fin-edu-submit-btn {
+  width: 100%;
+  padding: 1.25rem;
+  background: var(--navy-primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fin-edu-submit-btn:hover {
+  background: var(--navy-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
+}
+
+.fin-edu-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Quiz Results */
+.fin-edu-quiz-results {
+  margin-top: 2rem;
+}
+
+.fin-edu-score {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  border: 3px solid var(--navy-light);
+}
+
+.fin-edu-score.passed {
+  border-color: var(--success);
+  background: linear-gradient(to bottom, #f0fdf4, #ffffff);
+}
+
+.fin-edu-score.failed {
+  border-color: var(--error);
+  background: linear-gradient(to bottom, #fef2f2, #ffffff);
+}
+
+.fin-edu-score svg {
+  margin-bottom: 1rem;
+}
+
+.fin-edu-score h2 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+}
+
+.fin-edu-score.passed h2 {
+  color: var(--success);
+}
+
+.fin-edu-score.failed h2 {
+  color: var(--error);
+}
+
+.fin-edu-results-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.fin-edu-result-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--navy-light);
+}
+
+.fin-edu-result-card.correct {
+  background: linear-gradient(to right, #f0fdf4, #ffffff);
+  border-color: var(--success);
+}
+
+.fin-edu-result-card.incorrect {
+  background: linear-gradient(to right, #fef2f2, #ffffff);
+  border-color: var(--error);
+}
+
+.fin-edu-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.fin-edu-result-header h4 {
+  margin: 0;
+  color: var(--navy-primary);
+}
+
+.fin-edu-wrong {
+  color: var(--error);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.fin-edu-result-question {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--navy-dark);
+}
+
+.fin-edu-result-explanation {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+.fin-edu-retry-btn {
+  width: 100%;
+  padding: 1rem;
+  background: white;
+  color: var(--navy-primary);
+  border: 2px solid var(--navy-primary);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fin-edu-retry-btn:hover {
+  background: var(--navy-primary);
+  color: white;
+}
+
+/* Progress Section */
+.fin-edu-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.fin-edu-progress-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 2px solid var(--navy-light);
+}
+
+.fin-edu-progress-card h2,
+.fin-edu-progress-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem 0;
+  color: var(--navy-dark);
+}
+
+.fin-edu-progress-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.fin-edu-progress-stat {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--navy-light);
+  border-radius: 12px;
+}
+
+.fin-edu-progress-stat strong {
+  display: block;
+  font-size: 2rem;
+  color: var(--navy-primary);
+  margin-bottom: 0.5rem;
+}
+
+.fin-edu-progress-stat span {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.fin-edu-saved-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fin-edu-saved-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--navy-light);
+  border-radius: 8px;
+}
+
+.fin-edu-saved-item button {
+  padding: 0.5rem 1rem;
+  background: var(--navy-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fin-edu-saved-item button:hover {
+  background: var(--navy-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .fin-edu-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fin-edu-user-stats {
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .fin-edu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fin-edu-tabs {
+    flex-direction: column;
+  }
+
+  .fin-edu-article-detail h1 {
+    font-size: 1.75rem;
+  }
+
+  .fin-edu-article-content {
+    font-size: 1rem;
+  }
+
+  .fin-edu-progress-stats {
+    grid-template-columns: 1fr;
+  }
+}

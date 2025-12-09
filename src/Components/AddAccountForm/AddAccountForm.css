@@ -1,0 +1,46 @@
+.add-account-form {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.account-type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.account-type-card {
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.account-type-card:hover {
+  border-color: #2563eb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.account-type-card.selected {
+  border-color: #2563eb;
+  background-color: #eff6ff;
+}
+
+.account-type-card input[type="radio"] {
+  margin-bottom: 10px;
+}
+
+.account-type-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.account-type-card p {
+  color: #6b7280;
+  font-size: 14px;
+}

@@ -1,0 +1,1558 @@
+/* BillPayment.css - Navy Federal Credit Union Bill Payment Page */
+
+/* ============================================
+   ROOT VARIABLES - Navy Federal Brand Colors
+   ============================================ */
+:root {
+  --nfcu-navy-primary: #003b5c;
+  --nfcu-navy-dark: #002942;
+  --nfcu-navy-light: #004d73;
+  --nfcu-gold: #f7b32b;
+  --nfcu-gold-dark: #d99b1f;
+  --nfcu-gold-light: #ffc94d;
+  
+  --color-success: #059669;
+  --color-success-light: #d1fae5;
+  --color-danger: #dc2626;
+  --color-danger-light: #fee2e2;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+  
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 200ms ease-in-out;
+  --transition-slow: 300ms ease-in-out;
+}
+
+/* ============================================
+   MAIN PAGE CONTAINER
+   ============================================ */
+.billpay-007-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--gray-900);
+}
+
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+.billpay-007-header {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.billpay-007-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--nfcu-navy-primary);
+  margin: 0;
+}
+
+.billpay-007-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 0.5rem;
+  color: var(--nfcu-navy-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.billpay-007-back-btn:hover {
+  background: var(--nfcu-navy-primary);
+  color: white;
+  border-color: var(--nfcu-navy-primary);
+  transform: translateX(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   QUICK ACTIONS CARDS
+   ============================================ */
+.billpay-007-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.billpay-007-action-card {
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.billpay-007-action-card svg {
+  color: var(--nfcu-navy-primary);
+  transition: all var(--transition-base);
+}
+
+.billpay-007-action-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--nfcu-navy-primary);
+  margin: 0;
+}
+
+.billpay-007-action-card p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.billpay-007-action-card:hover {
+  border-color: var(--nfcu-navy-primary);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.billpay-007-action-card:hover svg {
+  transform: scale(1.1);
+  color: var(--nfcu-gold);
+}
+
+.billpay-007-action-card.billpay-007-primary {
+  background: linear-gradient(135deg, var(--nfcu-navy-primary) 0%, var(--nfcu-navy-dark) 100%);
+  border-color: var(--nfcu-navy-primary);
+}
+
+.billpay-007-action-card.billpay-007-primary svg,
+.billpay-007-action-card.billpay-007-primary h3,
+.billpay-007-action-card.billpay-007-primary p {
+  color: white;
+}
+
+.billpay-007-action-card.billpay-007-primary:hover {
+  background: linear-gradient(135deg, var(--nfcu-navy-dark) 0%, var(--nfcu-navy-primary) 100%);
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+.billpay-007-section {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+}
+
+.billpay-007-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.billpay-007-section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--nfcu-navy-primary);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.billpay-007-count-badge {
+  background: var(--nfcu-gold);
+  color: var(--nfcu-navy-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   PAYEES GRID
+   ============================================ */
+.billpay-007-payees-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.billpay-007-payee-card {
+  background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+  border: 2px solid var(--gray-200);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.billpay-007-payee-card:hover {
+  border-color: var(--nfcu-navy-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.billpay-007-payee-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.billpay-007-payee-header h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--nfcu-navy-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.billpay-007-payee-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.billpay-007-icon-btn {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--gray-100);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.billpay-007-icon-btn:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.billpay-007-icon-btn.billpay-007-success {
+  color: var(--color-success);
+}
+
+.billpay-007-icon-btn.billpay-007-success:hover {
+  background: var(--color-success);
+  color: white;
+}
+
+.billpay-007-icon-btn.billpay-007-danger {
+  color: var(--color-danger);
+}
+
+.billpay-007-icon-btn.billpay-007-danger:hover {
+  background: var(--color-danger);
+  color: white;
+}
+
+.billpay-007-payee-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.billpay-007-detail-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+
+.billpay-007-detail-row span:first-child {
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.billpay-007-detail-row span:last-child {
+  color: var(--gray-900);
+  font-weight: 600;
+}
+
+/* ============================================
+   BILL TYPE BADGES
+   ============================================ */
+.billpay-007-bill-type-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: var(--nfcu-gold-light);
+  color: var(--nfcu-navy-dark);
+  border: 1px solid var(--nfcu-gold);
+}
+
+/* ============================================
+   SCHEDULED PAYMENTS
+   ============================================ */
+.billpay-007-scheduled-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.billpay-007-scheduled-item {
+  background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+  border: 2px solid var(--gray-200);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all var(--transition-base);
+}
+
+.billpay-007-scheduled-item:hover {
+  border-color: var(--nfcu-navy-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateX(8px);
+}
+
+.billpay-007-scheduled-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+}
+
+.billpay-007-scheduled-info h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--nfcu-navy-primary);
+  margin: 0 0 0.25rem 0;
+}
+
+.billpay-007-scheduled-info p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.billpay-007-scheduled-details {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.billpay-007-scheduled-details .billpay-007-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--nfcu-navy-primary);
+}
+
+.billpay-007-next-date {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.billpay-007-frequency-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  background: var(--nfcu-navy-primary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* ============================================
+   FILTERS
+   ============================================ */
+.billpay-007-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: var(--gray-50);
+  border-radius: 0.75rem;
+  border: 1px solid var(--gray-200);
+}
+
+.billpay-007-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.billpay-007-filter-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.billpay-007-filter-input {
+  padding: 0.75rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: all var(--transition-base);
+  background: white;
+}
+
+.billpay-007-filter-input:focus {
+  outline: none;
+  border-color: var(--nfcu-navy-primary);
+  box-shadow: 0 0 0 3px rgba(0, 59, 92, 0.1);
+}
+
+.billpay-007-search-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.billpay-007-search-input svg {
+  position: absolute;
+  left: 0.75rem;
+  color: var(--gray-400);
+}
+
+.billpay-007-search-input input {
+  padding-left: 2.5rem;
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: all var(--transition-base);
+}
+
+.billpay-007-search-input input:focus {
+  outline: none;
+  border-color: var(--nfcu-navy-primary);
+  box-shadow: 0 0 0 3px rgba(0, 59, 92, 0.1);
+}
+
+/* ============================================
+   PAYMENT HISTORY TABLE
+   ============================================ */
+.billpay-007-history-table-container {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  border: 1px solid var(--gray-200);
+}
+
+.billpay-007-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.billpay-007-history-table thead {
+  background: linear-gradient(135deg, var(--nfcu-navy-primary) 0%, var(--nfcu-navy-dark) 100%);
+  color: white;
+}
+
+.billpay-007-history-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.billpay-007-history-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--gray-200);
+  font-size: 0.875rem;
+}
+
+.billpay-007-history-table tbody tr {
+  transition: all var(--transition-fast);
+}
+
+.billpay-007-history-table tbody tr:hover {
+  background: var(--gray-50);
+}
+
+.billpay-007-amount-cell {
+  font-weight: 700;
+  color: var(--nfcu-navy-primary);
+  font-size: 1rem;
+}
+
+.billpay-007-confirmation {
+  font-family: 'Courier New', monospace;
+  color: var(--gray-600);
+  font-size: 0.8rem;
+}
+
+/* ============================================
+   STATUS BADGES
+   ============================================ */
+.billpay-007-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.billpay-007-status-badge.billpay-007-completed {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.billpay-007-status-badge.billpay-007-pending {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.billpay-007-status-badge.billpay-007-failed {
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.billpay-007-empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--gray-500);
+}
+
+.billpay-007-empty-state svg {
+  color: var(--gray-300);
+  margin-bottom: 1rem;
+}
+
+.billpay-007-empty-state p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.billpay-007-btn-primary {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--nfcu-navy-primary) 0%, var(--nfcu-navy-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.billpay-007-btn-primary:hover {
+  background: linear-gradient(135deg, var(--nfcu-navy-dark) 0%, var(--nfcu-navy-primary) 100%);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.billpay-007-btn-primary:active {
+  transform: translateY(0);
+}
+
+.billpay-007-btn-secondary {
+  padding: 0.75rem 1.5rem;
+  background: white;
+  color: var(--nfcu-navy-primary);
+  border: 2px solid var(--gray-300);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.billpay-007-btn-secondary:hover {
+  background: var(--gray-50);
+  border-color: var(--nfcu-navy-primary);
+}
+
+.billpay-007-btn-danger-outline {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: var(--color-danger);
+  border: 2px solid var(--color-danger);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.billpay-007-btn-danger-outline:hover {
+  background: var(--color-danger);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* ============================================
+   MODALS
+   ============================================ */
+.billpay-007-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: billpay-007-fadeIn 0.2s ease-out;
+}
+
+@keyframes billpay-007-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.billpay-007-modal {
+  background: white;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  animation: billpay-007-slideUp 0.3s ease-out;
+}
+
+@keyframes billpay-007-slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.billpay-007-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 2px solid var(--gray-200);
+  background: linear-gradient(135deg, var(--nfcu-navy-primary) 0%, var(--nfcu-navy-dark) 100%);
+  border-radius: 1rem 1rem 0 0;
+}
+
+.billpay-007-modal-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.billpay-007-close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.billpay-007-close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+/* ============================================
+   FORMS
+   ============================================ */
+.billpay-007-form {
+  padding: 1.5rem;
+}
+
+.billpay-007-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.billpay-007-form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0.5rem;
+}
+
+.billpay-007-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: all var(--transition-base);
+  font-family: inherit;
+}
+
+.billpay-007-input:focus {
+  outline: none;
+  border-color: var(--nfcu-navy-primary);
+  box-shadow: 0 0 0 3px rgba(0, 59, 92, 0.1);
+}
+
+.billpay-007-input::placeholder {
+  color: var(--gray-400);
+}
+
+.billpay-007-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.billpay-007-checkbox-group {
+  margin: 1rem 0;
+}
+
+.billpay-007-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.billpay-007-checkbox-label input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+  accent-color: var(--nfcu-navy-primary);
+}
+
+.billpay-007-modal-actions {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.billpay-007-modal-actions button {
+  flex: 1;
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+.billpay-007-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  font-size: 1.25rem;
+  color: var(--nfcu-navy-primary);
+  font-weight: 600;
+}
+
+.billpay-007-loading::after {
+  content: '';
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid var(--gray-200);
+  border-top-color: var(--nfcu-navy-primary);
+  border-radius: 50%;
+  animation: billpay-007-spin 0.8s linear infinite;
+  margin-left: 1rem;
+}
+
+@keyframes billpay-007-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+  .billpay-007-quick-actions {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  
+  .billpay-007-payees-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .billpay-007-page {
+    padding: 1rem;
+  }
+  
+  .billpay-007-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .billpay-007-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .billpay-007-quick-actions {
+    grid-template-columns: 1fr;
+  }
+  
+  .billpay-007-section {
+    padding: 1.5rem;
+  }
+  
+  .billpay-007-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .billpay-007-payees-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .billpay-007-filters {
+    grid-template-columns: 1fr;
+  }
+  
+  .billpay-007-form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .billpay-007-scheduled-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .billpay-007-scheduled-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .billpay-007-scheduled-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .billpay-007-modal {
+    max-width: 100%;
+    margin: 1rem;
+  }
+  
+  .billpay-007-modal-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .billpay-007-history-table {
+    font-size: 0.75rem;
+  }
+  
+  .billpay-007-history-table th,
+  .billpay-007-history-table td {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .billpay-007-back-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .billpay-007-payee-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .billpay-007-payee-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .billpay-007-back-btn,
+  .billpay-007-quick-actions,
+  .billpay-007-filters,
+  .billpay-007-btn-primary,
+  .billpay-007-btn-secondary,
+  .billpay-007-icon-btn,
+  .billpay-007-modal-overlay {
+    display: none !important;
+  }
+  
+  .billpay-007-page {
+    background: white;
+    padding: 0;
+  }
+  
+  .billpay-007-section {
+    box-shadow: none;
+    border: 1px solid var(--gray-300);
+    page-break-inside: avoid;
+  }
+  
+  .billpay-007-history-table {
+    page-break-inside: auto;
+  }
+  
+  .billpay-007-history-table tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================ */
+.billpay-007-btn-primary:focus,
+.billpay-007-btn-secondary:focus,
+.billpay-007-btn-danger-outline:focus,
+.billpay-007-icon-btn:focus {
+  outline: 3px solid var(--nfcu-gold);
+  outline-offset: 2px;
+}
+
+.billpay-007-input:focus {
+  outline: none;
+  border-color: var(--nfcu-navy-primary);
+  box-shadow: 0 0 0 3px rgba(0, 59, 92, 0.15);
+}
+
+/* Screen reader only content */
+.billpay-007-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+.billpay-007-modal::-webkit-scrollbar,
+.billpay-007-history-table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.billpay-007-modal::-webkit-scrollbar-track,
+.billpay-007-history-table-container::-webkit-scrollbar-track {
+  background: var(--gray-100);
+  border-radius: 4px;
+}
+
+.billpay-007-modal::-webkit-scrollbar-thumb,
+.billpay-007-history-table-container::-webkit-scrollbar-thumb {
+  background: var(--nfcu-navy-primary);
+  border-radius: 4px;
+}
+
+.billpay-007-modal::-webkit-scrollbar-thumb:hover,
+.billpay-007-history-table-container::-webkit-scrollbar-thumb:hover {
+  background: var(--nfcu-navy-dark);
+}
+
+/* ============================================
+   ANIMATIONS AND TRANSITIONS
+   ============================================ */
+@keyframes billpay-007-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes billpay-007-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes billpay-007-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Apply animations on certain states */
+.billpay-007-loading {
+  animation: billpay-007-pulse 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   TOOLTIP STYLES
+   ============================================ */
+.billpay-007-tooltip {
+  position: relative;
+}
+
+.billpay-007-tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  padding: 0.5rem 0.75rem;
+  background: var(--gray-900);
+  color: white;
+  font-size: 0.75rem;
+  border-radius: 0.375rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-base);
+  z-index: 1000;
+}
+
+.billpay-007-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--gray-900);
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-base);
+}
+
+.billpay-007-tooltip:hover::before,
+.billpay-007-tooltip:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
+   ADDITIONAL UTILITY CLASSES
+   ============================================ */
+.billpay-007-text-center {
+  text-align: center;
+}
+
+.billpay-007-text-right {
+  text-align: right;
+}
+
+.billpay-007-text-left {
+  text-align: left;
+}
+
+.billpay-007-font-bold {
+  font-weight: 700;
+}
+
+.billpay-007-font-semibold {
+  font-weight: 600;
+}
+
+.billpay-007-font-medium {
+  font-weight: 500;
+}
+
+.billpay-007-text-sm {
+  font-size: 0.875rem;
+}
+
+.billpay-007-text-xs {
+  font-size: 0.75rem;
+}
+
+.billpay-007-text-lg {
+  font-size: 1.125rem;
+}
+
+.billpay-007-text-xl {
+  font-size: 1.25rem;
+}
+
+.billpay-007-text-navy {
+  color: var(--nfcu-navy-primary);
+}
+
+.billpay-007-text-gold {
+  color: var(--nfcu-gold);
+}
+
+.billpay-007-text-success {
+  color: var(--color-success);
+}
+
+.billpay-007-text-danger {
+  color: var(--color-danger);
+}
+
+.billpay-007-text-gray {
+  color: var(--gray-600);
+}
+
+.billpay-007-bg-navy {
+  background: var(--nfcu-navy-primary);
+}
+
+.billpay-007-bg-gold {
+  background: var(--nfcu-gold);
+}
+
+.billpay-007-bg-light {
+  background: var(--gray-50);
+}
+
+.billpay-007-bg-white {
+  background: white;
+}
+
+/* ============================================
+   SPACING UTILITIES
+   ============================================ */
+.billpay-007-mt-1 { margin-top: 0.25rem; }
+.billpay-007-mt-2 { margin-top: 0.5rem; }
+.billpay-007-mt-3 { margin-top: 0.75rem; }
+.billpay-007-mt-4 { margin-top: 1rem; }
+.billpay-007-mt-5 { margin-top: 1.25rem; }
+.billpay-007-mt-6 { margin-top: 1.5rem; }
+
+.billpay-007-mb-1 { margin-bottom: 0.25rem; }
+.billpay-007-mb-2 { margin-bottom: 0.5rem; }
+.billpay-007-mb-3 { margin-bottom: 0.75rem; }
+.billpay-007-mb-4 { margin-bottom: 1rem; }
+.billpay-007-mb-5 { margin-bottom: 1.25rem; }
+.billpay-007-mb-6 { margin-bottom: 1.5rem; }
+
+.billpay-007-p-1 { padding: 0.25rem; }
+.billpay-007-p-2 { padding: 0.5rem; }
+.billpay-007-p-3 { padding: 0.75rem; }
+.billpay-007-p-4 { padding: 1rem; }
+.billpay-007-p-5 { padding: 1.25rem; }
+.billpay-007-p-6 { padding: 1.5rem; }
+
+/* ============================================
+   FLEX UTILITIES
+   ============================================ */
+.billpay-007-flex {
+  display: flex;
+}
+
+.billpay-007-flex-col {
+  flex-direction: column;
+}
+
+.billpay-007-flex-row {
+  flex-direction: row;
+}
+
+.billpay-007-items-center {
+  align-items: center;
+}
+
+.billpay-007-items-start {
+  align-items: flex-start;
+}
+
+.billpay-007-items-end {
+  align-items: flex-end;
+}
+
+.billpay-007-justify-between {
+  justify-content: space-between;
+}
+
+.billpay-007-justify-center {
+  justify-content: center;
+}
+
+.billpay-007-justify-end {
+  justify-content: flex-end;
+}
+
+.billpay-007-gap-1 { gap: 0.25rem; }
+.billpay-007-gap-2 { gap: 0.5rem; }
+.billpay-007-gap-3 { gap: 0.75rem; }
+.billpay-007-gap-4 { gap: 1rem; }
+.billpay-007-gap-5 { gap: 1.25rem; }
+.billpay-007-gap-6 { gap: 1.5rem; }
+
+/* ============================================
+   BORDER UTILITIES
+   ============================================ */
+.billpay-007-border {
+  border: 1px solid var(--gray-200);
+}
+
+.billpay-007-border-2 {
+  border: 2px solid var(--gray-200);
+}
+
+.billpay-007-border-navy {
+  border-color: var(--nfcu-navy-primary);
+}
+
+.billpay-007-border-gold {
+  border-color: var(--nfcu-gold);
+}
+
+.billpay-007-rounded {
+  border-radius: 0.375rem;
+}
+
+.billpay-007-rounded-lg {
+  border-radius: 0.75rem;
+}
+
+.billpay-007-rounded-xl {
+  border-radius: 1rem;
+}
+
+.billpay-007-rounded-full {
+  border-radius: 9999px;
+}
+
+/* ============================================
+   SHADOW UTILITIES
+   ============================================ */
+.billpay-007-shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.billpay-007-shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.billpay-007-shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.billpay-007-shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+.billpay-007-shadow-none {
+  box-shadow: none;
+}
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+.billpay-007-hover-lift {
+  transition: all var(--transition-base);
+}
+
+.billpay-007-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.billpay-007-hover-scale {
+  transition: all var(--transition-base);
+}
+
+.billpay-007-hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.billpay-007-hover-glow {
+  transition: all var(--transition-base);
+}
+
+.billpay-007-hover-glow:hover {
+  box-shadow: 0 0 20px rgba(0, 59, 92, 0.3);
+}
+
+/* ============================================
+   GRADIENT BACKGROUNDS
+   ============================================ */
+.billpay-007-gradient-navy {
+  background: linear-gradient(135deg, var(--nfcu-navy-primary) 0%, var(--nfcu-navy-dark) 100%);
+}
+
+.billpay-007-gradient-gold {
+  background: linear-gradient(135deg, var(--nfcu-gold) 0%, var(--nfcu-gold-dark) 100%);
+}
+
+.billpay-007-gradient-light {
+  background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+}
+
+/* ============================================
+   NOTIFICATION/ALERT STYLES
+   ============================================ */
+.billpay-007-alert {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.billpay-007-alert-success {
+  background: var(--color-success-light);
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+}
+
+.billpay-007-alert-danger {
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+}
+
+.billpay-007-alert-warning {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid var(--color-warning);
+}
+
+.billpay-007-alert-info {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid var(--color-info);
+}
+
+/* ============================================
+   BADGE VARIATIONS
+   ============================================ */
+.billpay-007-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.billpay-007-badge-navy {
+  background: var(--nfcu-navy-primary);
+  color: white;
+}
+
+.billpay-007-badge-gold {
+  background: var(--nfcu-gold);
+  color: var(--nfcu-navy-primary);
+}
+
+.billpay-007-badge-success {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.billpay-007-badge-danger {
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+}
+
+.billpay-007-badge-gray {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+/* ============================================
+   DIVIDER
+   ============================================ */
+.billpay-007-divider {
+  height: 1px;
+  background: var(--gray-200);
+  margin: 1.5rem 0;
+}
+
+.billpay-007-divider-thick {
+  height: 2px;
+  background: var(--gray-300);
+}
+
+/* ============================================
+   CARD VARIATIONS
+   ============================================ */
+.billpay-007-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition-base);
+}
+
+.billpay-007-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--nfcu-navy-primary);
+}
+
+.billpay-007-card-navy {
+  background: linear-gradient(135deg, var(--nfcu-navy-primary) 0%, var(--nfcu-navy-dark) 100%);
+  color: white;
+}
+
+.billpay-007-card-gold {
+  background: var(--nfcu-gold);
+  color: var(--nfcu-navy-primary);
+}
+
+/* ============================================
+   LOADING SKELETON
+   ============================================ */
+.billpay-007-skeleton {
+  background: linear-gradient(90deg, var(--gray-200) 25%, var(--gray-100) 50%, var(--gray-200) 75%);
+  background-size: 200% 100%;
+  animation: billpay-007-skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: 0.375rem;
+}
+
+@keyframes billpay-007-skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.billpay-007-skeleton-text {
+  height: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.billpay-007-skeleton-title {
+  height: 1.5rem;
+  width: 60%;
+  margin-bottom: 1rem;
+}
+
+.billpay-007-skeleton-button {
+  height: 2.5rem;
+  width: 8rem;
+}
+
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+.billpay-007-progress {
+  width: 100%;
+  height: 0.5rem;
+  background: var(--gray-200);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.billpay-007-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--nfcu-navy-primary), var(--nfcu-gold));
+  border-radius: 2rem;
+  transition: width var(--transition-slow);
+}
+
+/* ============================================
+   CONFIRMATION CHECKMARK ANIMATION
+   ============================================ */
+.billpay-007-checkmark-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid var(--color-success);
+  margin: 0 auto 1rem;
+  position: relative;
+  animation: billpay-007-checkmark-circle-anim 0.6s ease-in-out;
+}
+
+@keyframes billpay-007-checkmark-circle-anim {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.billpay-007-checkmark {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: billpay-007-checkmark-anim 0.4s 0.3s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes billpay-007-checkmark-anim {
+  to {
+    opacity: 1;
+  }
+}

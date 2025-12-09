@@ -1,0 +1,571 @@
+/* Navy Federal Credit Union Official Colors */
+:root {
+  --nfcu-navy: #003366;
+  --nfcu-gold: #F8B739;
+  --nfcu-light-blue: #0066CC;
+  --nfcu-dark-navy: #001f3f;
+  --nfcu-gray: #6B7280;
+  --nfcu-light-gray: #F3F4F6;
+  --nfcu-white: #FFFFFF;
+  --nfcu-success: #10B981;
+  --nfcu-error: #EF4444;
+}
+
+.newsroom-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1F2937;
+  background-color: #FFFFFF;
+}
+
+/* Hero Section */
+.newsroom-hero {
+  background: linear-gradient(135deg, var(--nfcu-navy) 0%, var(--nfcu-dark-navy) 100%);
+  color: var(--nfcu-white);
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsroom-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="rgba(248,183,57,0.05)"/></svg>');
+  opacity: 0.1;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.newsroom-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.newsroom-hero p {
+  font-size: 1.25rem;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Featured News Section */
+.featured-news-section {
+  padding: 60px 20px;
+  background-color: var(--nfcu-light-gray);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--nfcu-navy);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.featured-news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.featured-card {
+  background: var(--nfcu-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.featured-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.featured-image {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.featured-card:hover .featured-image img {
+  transform: scale(1.05);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--nfcu-gold);
+  color: var(--nfcu-navy);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.featured-content {
+  padding: 25px;
+}
+
+.category-badge {
+  display: inline-block;
+  background: var(--nfcu-navy);
+  color: var(--nfcu-white);
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+}
+
+.featured-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--nfcu-navy);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.subtitle {
+  color: var(--nfcu-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.article-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.85rem;
+  color: var(--nfcu-gray);
+  padding-top: 15px;
+  border-top: 1px solid var(--nfcu-light-gray);
+}
+
+/* Main Content Section */
+.newsroom-content {
+  padding: 60px 20px;
+}
+
+/* Filter Section */
+.filter-section {
+  margin-bottom: 50px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 2px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--nfcu-navy);
+}
+
+.search-button {
+  padding: 14px 30px;
+  background: var(--nfcu-navy);
+  color: var(--nfcu-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-button:hover {
+  background: var(--nfcu-dark-navy);
+}
+
+.category-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category-btn {
+  padding: 10px 20px;
+  background: var(--nfcu-white);
+  color: var(--nfcu-navy);
+  border: 2px solid var(--nfcu-navy);
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+  background: var(--nfcu-light-gray);
+}
+
+.category-btn.active {
+  background: var(--nfcu-navy);
+  color: var(--nfcu-white);
+}
+
+/* Loading and Error States */
+.loading-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.spinner {
+  border: 4px solid var(--nfcu-light-gray);
+  border-top: 4px solid var(--nfcu-navy);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-state p {
+  color: var(--nfcu-gray);
+  font-size: 1.1rem;
+}
+
+.error-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--nfcu-error);
+  font-size: 1.1rem;
+}
+
+/* News Grid */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.news-card {
+  background: var(--nfcu-white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.news-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-image img {
+  transform: scale(1.08);
+}
+
+.news-content {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--nfcu-navy);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.news-excerpt {
+  color: var(--nfcu-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  flex: 1;
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--nfcu-gray);
+  padding-top: 15px;
+  margin-bottom: 15px;
+  border-top: 1px solid var(--nfcu-light-gray);
+}
+
+.read-more-btn {
+  padding: 10px 20px;
+  background: var(--nfcu-gold);
+  color: var(--nfcu-navy);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.read-more-btn:hover {
+  background: #e6a730;
+  transform: translateX(3px);
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  color: var(--nfcu-navy);
+  margin-bottom: 10px;
+}
+
+.no-results p {
+  color: var(--nfcu-gray);
+  font-size: 1rem;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+.pagination-btn {
+  padding: 10px 20px;
+  background: var(--nfcu-white);
+  color: var(--nfcu-navy);
+  border: 2px solid var(--nfcu-navy);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: var(--nfcu-navy);
+  color: var(--nfcu-white);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 8px;
+}
+
+.page-number {
+  width: 40px;
+  height: 40px;
+  background: var(--nfcu-white);
+  color: var(--nfcu-navy);
+  border: 2px solid var(--nfcu-navy);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page-number:hover {
+  background: var(--nfcu-light-gray);
+}
+
+.page-number.active {
+  background: var(--nfcu-navy);
+  color: var(--nfcu-white);
+}
+
+.page-ellipsis {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nfcu-gray);
+  font-weight: 600;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+  background: linear-gradient(135deg, var(--nfcu-navy) 0%, var(--nfcu-dark-navy) 100%);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.newsletter-content h2 {
+  font-size: 2.5rem;
+  color: var(--nfcu-white);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.newsletter-content p {
+  color: var(--nfcu-white);
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.newsletter-form button {
+  padding: 15px 35px;
+  background: var(--nfcu-gold);
+  color: var(--nfcu-navy);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #e6a730;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .newsroom-hero h1 {
+    font-size: 2rem;
+  }
+
+  .newsroom-hero p {
+    font-size: 1rem;
+  }
+
+  .featured-news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-filters {
+    flex-direction: column;
+  }
+
+  .category-btn {
+    width: 100%;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsroom-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .featured-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .news-title {
+    font-size: 1.1rem;
+  }
+}

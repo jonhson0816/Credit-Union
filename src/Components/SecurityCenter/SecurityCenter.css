@@ -1,0 +1,803 @@
+/* SecurityCenter.css - Navy Federal Credit Union Security Center Page Styles */
+
+/* Color Variables */
+:root {
+  --navy-primary: #003865;
+  --navy-dark: #002244;
+  --navy-light: #004a7c;
+  --gold-accent: #FFB81C;
+  --gold-dark: #E6A300;
+  --white: #FFFFFF;
+  --light-gray: #F5F7FA;
+  --medium-gray: #E1E8ED;
+  --text-gray: #4A5568;
+  --text-dark: #1A202C;
+  --danger-red: #EF4444;
+  --warning-orange: #F59E0B;
+  --success-green: #10B981;
+}
+
+/* Container */
+.security-container {
+  width: 100%;
+  background-color: var(--white);
+}
+
+/* Hero Section */
+.security-hero {
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 50%, var(--navy-light) 100%);
+  color: var(--white);
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.security-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255,184,28,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255,184,28,0.1) 0%, transparent 50%);
+  animation: securityPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes securityPulse {
+  from { opacity: 0.3; }
+  to { opacity: 0.6; }
+}
+
+.security-hero-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.security-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(16, 185, 129, 0.25);
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  margin-bottom: 1.75rem;
+  border: 2px solid var(--success-green);
+  backdrop-filter: blur(10px);
+}
+
+.security-badge-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--success-green);
+}
+
+.security-hero-badge span {
+  color: var(--success-green);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.security-hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.security-hero-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  line-height: 1.8;
+  max-width: 850px;
+  margin: 0 auto 3.5rem;
+}
+
+.security-hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.security-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.security-stat-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--gold-accent);
+}
+
+.security-stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.security-stat-label {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Security Features */
+.security-features {
+  padding: 5rem 2rem;
+  background-color: var(--white);
+}
+
+.security-features-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.security-section-title {
+  font-size: 3rem;
+  color: var(--navy-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.security-section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-gray);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3.5rem;
+  line-height: 1.8;
+}
+
+.security-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.security-feature-card {
+  background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.security-feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-color: var(--success-green);
+}
+
+.security-feature-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.security-feature-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.security-feature-status {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.security-feature-title {
+  font-size: 1.6rem;
+  color: var(--navy-primary);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.security-feature-description {
+  color: var(--text-gray);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Threats Section */
+.security-threats {
+  padding: 5rem 2rem;
+  background-color: var(--light-gray);
+}
+
+.security-threats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.security-threat-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.security-threat-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.75rem;
+  background-color: var(--white);
+  border: 2px solid var(--medium-gray);
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.security-threat-tab:hover {
+  border-color: var(--navy-primary);
+  background-color: var(--light-gray);
+}
+
+.security-threat-tab.active {
+  background-color: var(--navy-primary);
+  color: var(--white);
+  border-color: var(--navy-primary);
+}
+
+.security-threat-content {
+  background-color: var(--white);
+  padding: 3rem;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--medium-gray);
+}
+
+.security-threat-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--light-gray);
+}
+
+.security-threat-icon-large {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--danger-red) 0%, #DC2626 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.security-threat-title {
+  font-size: 2rem;
+  color: var(--navy-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.security-threat-description {
+  color: var(--text-gray);
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.security-warning-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: #FEF2F2;
+  border-left: 4px solid var(--danger-red);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2.5rem;
+}
+
+.security-warning-icon {
+  color: var(--danger-red);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+}
+
+.security-warning-text {
+  color: var(--text-dark);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.security-threat-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+.security-threat-section {
+  background-color: var(--light-gray);
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.security-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  color: var(--navy-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.security-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.security-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  color: var(--text-gray);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.security-bullet {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Best Practices */
+.security-practices {
+  padding: 5rem 2rem;
+  background-color: var(--white);
+}
+
+.security-practices-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.security-practices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+.security-practice-card {
+  background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid var(--medium-gray);
+  position: relative;
+}
+
+.security-practice-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--gold-accent);
+}
+
+.security-practice-number {
+  position: absolute;
+  top: -15px;
+  left: 2rem;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
+  color: var(--navy-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255, 184, 28, 0.4);
+}
+
+.security-practice-title {
+  font-size: 1.6rem;
+  color: var(--navy-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.security-practice-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.security-practice-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  color: var(--text-gray);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.security-practice-check {
+  color: var(--success-green);
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.1rem;
+}
+
+/* FAQs */
+.security-faqs {
+  padding: 5rem 2rem;
+  background-color: var(--light-gray);
+}
+
+.security-faqs-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.security-faq-list {
+  margin-top: 3rem;
+}
+
+.security-faq-item {
+  background-color: var(--white);
+  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.security-faq-item:hover {
+  border-color: var(--navy-primary);
+}
+
+.security-faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  background-color: var(--white);
+  border: none;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.security-faq-question:hover {
+  background-color: var(--light-gray);
+}
+
+.security-faq-answer {
+  padding: 0 2rem 2rem 2rem;
+  color: var(--text-gray);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  animation: securityFadeIn 0.3s ease;
+}
+
+@keyframes securityFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Report Section */
+.security-report {
+  padding: 5rem 2rem;
+  background-color: var(--white);
+}
+
+.security-report-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.security-report-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.security-report-icon {
+  width: 80px;
+  height: 80px;
+  color: var(--danger-red);
+  margin: 0 auto 2rem;
+}
+
+.security-report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.security-report-card {
+  background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid var(--medium-gray);
+}
+
+.security-report-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--navy-primary);
+}
+
+.security-report-card-icon {
+  width: 56px;
+  height: 56px;
+  color: var(--navy-primary);
+  margin: 0 auto 1.5rem;
+}
+
+.security-report-title {
+  font-size: 1.5rem;
+  color: var(--navy-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.security-report-detail {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.security-report-description {
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.security-report-btn {
+  padding: 0.875rem 2rem;
+  background-color: var(--danger-red);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.security-report-btn:hover {
+  background-color: #DC2626;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.3);
+}
+
+.security-report-notice {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #DBEAFE;
+  border-left: 4px solid #3B82F6;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.security-report-notice p {
+  color: var(--text-dark);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* CTA Section */
+.security-cta {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-dark) 100%);
+  color: var(--white);
+  text-align: center;
+}
+
+.security-cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.security-cta-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  color: var(--gold-accent);
+}
+
+.security-cta-title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.security-cta-text {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  opacity: 0.95;
+}
+
+.security-cta-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.security-cta-input {
+  flex: 1;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.security-cta-input:focus {
+  outline: none;
+  border-color: var(--gold-accent);
+  box-shadow: 0 0 0 3px rgba(255, 184, 28, 0.2);
+}
+
+.security-cta-btn {
+  padding: 1.25rem 2.5rem;
+  background-color: var(--gold-accent);
+  color: var(--navy-dark);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.security-cta-btn:hover {
+  background-color: var(--gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 184, 28, 0.4);
+}
+
+.security-cta-disclaimer {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .security-hero-stats {
+    gap: 2.5rem;
+  }
+
+  .security-threat-sections {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .security-hero {
+    padding: 4rem 1.5rem;
+  }
+
+  .security-hero-title {
+    font-size: 2.75rem;
+  }
+
+  .security-hero-subtitle {
+    font-size: 1.15rem;
+  }
+
+  .security-stat-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .security-section-title {
+    font-size: 2.25rem;
+  }
+
+  .security-section-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .security-threat-tabs {
+    flex-direction: column;
+  }
+
+  .security-threat-tab {
+    justify-content: center;
+  }
+
+  .security-threat-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .security-threat-content {
+    padding: 2rem;
+  }
+
+  .security-cta-form {
+    flex-direction: column;
+  }
+
+  .security-practices-grid,
+  .security-features-grid,
+  .security-report-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .security-hero-title {
+    font-size: 2rem;
+  }
+
+  .security-section-title {
+    font-size: 1.875rem;
+  }
+
+  .security-cta-title {
+    font-size: 2.25rem;
+  }
+
+  .security-feature-card,
+  .security-practice-card,
+  .security-report-card {
+    padding: 2rem;
+  }
+}
