@@ -14,7 +14,10 @@ import './AccountPage.css';
 const getFullImageUrl = (imageUrl) => {
   if (!imageUrl) return null;
   if (imageUrl.startsWith('http')) return imageUrl;
-  if (imageUrl.startsWith('/uploads')) return `https://credit-unionapi.onrender.com${imageUrl}`;
+  if (imageUrl.startsWith('/uploads')) {
+    const API_URL = import.meta.env.VITE_API_URL || 'https://credit-unionapi.onrender.com';
+    return `${API_URL}${imageUrl}`;
+  }
   if (imageUrl.startsWith('data:')) return imageUrl; // Base64 images
   return imageUrl;
 };
