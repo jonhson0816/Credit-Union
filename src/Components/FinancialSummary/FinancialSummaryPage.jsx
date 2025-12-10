@@ -50,9 +50,9 @@ const FinancialSummaryPage = () => {
   } = useNavyFederal();
 
   const [showBalances, setShowBalances] = useState(true);
-  const [selectedPeriod, setSelectedPeriod] = useState('30'); // days
+  const [selectedPeriod, setSelectedPeriod] = useState('30');
   const [selectedAccount, setSelectedAccount] = useState('all');
-  const [activeTab, setActiveTab] = useState('overview'); // overview, spending, income, trends
+  const [activeTab, setActiveTab] = useState('overview');
 
   // Calculate date range
   const dateRange = useMemo(() => {

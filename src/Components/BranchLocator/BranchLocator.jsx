@@ -26,7 +26,7 @@ const BranchLocator = () => {
   const [cities, setCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState('');
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://credit-unionapi.onrender.com';
 
   // Branch-specific services
   const branchServices = [

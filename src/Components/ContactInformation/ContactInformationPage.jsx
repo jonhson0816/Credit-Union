@@ -85,7 +85,7 @@ const ContactInformationPage = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:3000/api/contact/submit', {
+      const response = await fetch('https://credit-unionapi.onrender.com/api/contact/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

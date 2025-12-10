@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const NavyFederalContext = createContext();
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://credit-unionapi.onrender.com/api';
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.common['Accept'] = 'application/json';
@@ -575,10 +575,10 @@ const transferFunds = async (
   destinationAccount, 
   amount, 
   description,
-  recipientName,        // ← ADD THIS PARAMETER
-  recipientBank,        // ← ADD THIS PARAMETER
-  routingNumber,        // ← ADD THIS PARAMETER
-  sourceAccountType     // ← ADD THIS PARAMETER
+  recipientName,
+  recipientBank,
+  routingNumber,
+  sourceAccountType
 ) => {
   try {
     const token = localStorage.getItem('token');
@@ -597,9 +597,9 @@ const transferFunds = async (
       amount, 
       description,
       accountHolderName,
-      recipientName,        // ← Log this
-      recipientBank,        // ← Log this
-      routingNumber         // ← Log this
+      recipientName,
+      recipientBank,
+      routingNumber
     });
 
     // Find source account details from accounts array
@@ -613,9 +613,9 @@ const transferFunds = async (
       destinationAccountNumber: destinationAccount,
       
       // ===== NEWLY ADDED REQUIRED FIELDS =====
-      recipientName: recipientName,           // ← SEND THIS
-      recipientBank: recipientBank,           // ← SEND THIS
-      routingNumber: routingNumber,           // ← SEND THIS
+      recipientName: recipientName,
+      recipientBank: recipientBank,
+      routingNumber: routingNumber,
       sourceAccountType: sourceAccountType || sourceAccountDetails?.accountType || 'Checking',
       
       // Legacy fields (keeping for compatibility)

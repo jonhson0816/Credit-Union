@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_CONFIG = {
-  BASE_URL: import.meta.env.VITE_API_URL || 'http://localhost:3000',  // Remove /api
+  BASE_URL: import.meta.env.VITE_API_URL || 'https://credit-unionapi.onrender.com',
   TIMEOUT: 30000,
   RETRY_ATTEMPTS: 3,
   RETRY_DELAY: 1000
@@ -121,7 +121,7 @@ api.interceptors.response.use(
           throw new Error('No refresh token available');
         }
 
-        const response = await api.post('/auth/refresh', {  // Changed from /auth/refresh-token
+        const response = await api.post('/auth/refresh', {
           refreshToken: authData.refreshToken
         });
 

@@ -55,8 +55,8 @@ import ContactInformationPage from './Components/ContactInformation/ContactInfor
 import TransactionReceipt from './Components/TransactionReceipt/TransactionReceipt';
 
 // Define navigation and refresh times
-const NAVIGATION_TIME = 1000; // 1 second for navigation between pages
-const REFRESH_TIME = 300;     // 300ms for page refresh (much faster)
+const NAVIGATION_TIME = 1000;
+const REFRESH_TIME = 300;
 
 // Wrap components with preloader HOC
 const LoginWithPreloader = withPreLoader(Login, NAVIGATION_TIME, REFRESH_TIME);

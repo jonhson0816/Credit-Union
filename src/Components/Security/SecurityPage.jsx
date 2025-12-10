@@ -92,7 +92,7 @@ const SecurityPage = () => {
       }
 
       // Fetch security settings
-      const response = await fetch('http://localhost:3000/api/security/settings', {
+      const response = await fetch('https://credit-unionapi.onrender.com/api/security/settings', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -210,7 +210,7 @@ const SecurityPage = () => {
       setError('');
       
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:3000/api/security/change-password', {
+      const response = await fetch('https://credit-unionapi.onrender.com/api/security/change-password', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -244,7 +244,7 @@ const SecurityPage = () => {
       setLoading(true);
       const token = localStorage.getItem('token');
       
-      const response = await fetch('http://localhost:3000/api/security/enable-2fa', {
+      const response = await fetch('https://credit-unionapi.onrender.com/api/security/enable-2fa', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -277,7 +277,7 @@ const SecurityPage = () => {
       setLoading(true);
       const token = localStorage.getItem('token');
       
-      const response = await fetch('http://localhost:3000/api/security/verify-2fa', {
+      const response = await fetch('https://credit-unionapi.onrender.com/api/security/verify-2fa', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -311,7 +311,7 @@ const SecurityPage = () => {
       setLoading(true);
       const token = localStorage.getItem('token');
       
-      const response = await fetch('http://localhost:3000/api/security/disable-2fa', {
+      const response = await fetch('https://credit-unionapi.onrender.com/api/security/disable-2fa', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -343,7 +343,7 @@ const SecurityPage = () => {
       setLoading(true);
       const token = localStorage.getItem('token');
       
-      const response = await fetch('http://localhost:3000/api/security/security-questions', {
+      const response = await fetch('https://credit-unionapi.onrender.com/api/security/security-questions', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -375,7 +375,7 @@ const SecurityPage = () => {
       setLoading(true);
       const token = localStorage.getItem('token');
       
-      const response = await fetch('http://localhost:3000/api/security/alert-preferences', {
+      const response = await fetch('https://credit-unionapi.onrender.com/api/security/alert-preferences', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -405,7 +405,7 @@ const SecurityPage = () => {
       setLoading(true);
       const token = localStorage.getItem('token');
       
-      const response = await fetch(`http://localhost:3000/api/security/sessions/${sessionId}`, {
+      const response = await fetch(`https://credit-unionapi.onrender.com/api/security/sessions/${sessionId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -434,7 +434,7 @@ const SecurityPage = () => {
       setLoading(true);
       const token = localStorage.getItem('token');
       
-      const response = await fetch(`http://localhost:3000/api/security/trusted-devices/${deviceId}`, {
+      const response = await fetch(`https://credit-unionapi.onrender.com/api/security/trusted-devices/${deviceId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

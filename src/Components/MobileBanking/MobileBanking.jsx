@@ -20,7 +20,7 @@ const MobileBanking = () => {
   const [showDepositModal, setShowDepositModal] = useState(false);
   const [spendingAnalytics, setSpendingAnalytics] = useState(null);
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://credit-unionapi.onrender.com/api';
 
 // CRITICAL FIX: Sync accounts from localStorage on mount
   useEffect(() => {

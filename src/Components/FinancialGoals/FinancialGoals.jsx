@@ -3,7 +3,7 @@ import { Trash2, Edit, Check, Plus, ChevronUp, ChevronDown, Calendar, DollarSign
 import axios from 'axios';
 import './FinancialGoals.css';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://credit-unionapi.onrender.com/api';
 
 const FinancialGoals = () => {
   // Local state management instead of context

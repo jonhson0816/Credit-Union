@@ -6,7 +6,7 @@ import { LineChart, Line, PieChart as RePieChart, Pie, Cell, BarChart, Bar, XAxi
 import axios from 'axios';
 import './LoanCalculator.css';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://credit-unionapi.onrender.com/api';
 
 const LoanCalculator = () => {
   const navigate = useNavigate();

@@ -20,7 +20,7 @@ const FundTransfer = () => {
   const [processingTransfer, setProcessingTransfer] = useState(false);
 
   // API endpoints
-  const API_BASE_URL = 'http://localhost:3000/api';
+  const API_BASE_URL = 'https://credit-unionapi.onrender.com/api';
   const ACCOUNTS_ENDPOINT = `${API_BASE_URL}/accounts`;
   const TRANSFER_ENDPOINT = `${API_BASE_URL}/transfers`;
 

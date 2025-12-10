@@ -169,7 +169,7 @@ export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   const authAxios = axios.create({
-    baseURL: getEnvVar('VITE_API_URL', 'http://localhost:3000/api'),
+    baseURL: getEnvVar('VITE_API_URL', 'https://credit-unionapi.onrender.com/api'),
     headers: {
       'Content-Type': 'application/json'
     },

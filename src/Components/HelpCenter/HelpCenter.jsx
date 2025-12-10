@@ -28,7 +28,7 @@ import {
 } from 'lucide-react';
 import './HelpCenter.css';
 
-const API_BASE_URL = 'http://localhost:3000/api/help';
+const API_BASE_URL = 'https://credit-unionapi.onrender.com/api/help';
 
 // Icon mapping for categories
 const categoryIcons = {

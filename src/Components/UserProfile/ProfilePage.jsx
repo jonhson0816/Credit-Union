@@ -4,7 +4,7 @@ import { useNavyFederal } from '../../Context/NavyFederalContext';
 import axios from 'axios';
 
 // Add API URL configuration
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://credit-unionapi.onrender.com/api';
 
 const ProfilePage = () => {
   const { updateProfile: contextUpdateProfile } = useNavyFederal();
@@ -231,7 +231,7 @@ const ProfilePage = () => {
           {profile.profileImage ? (
             <img 
               src={profile.profileImage.startsWith('/uploads') 
-                ? `http://localhost:3000${profile.profileImage}` 
+                ? `https://credit-unionapi.onrender.com${profile.profileImage}` 
                 : profile.profileImage} 
               alt="Profile" 
               className="pro003-profile-image"

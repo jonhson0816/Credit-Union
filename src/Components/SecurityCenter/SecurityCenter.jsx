@@ -67,7 +67,7 @@ const SecurityCenter = () => {
   const fetchSecuritySettings = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3000/api/security/settings', {
+      const response = await axios.get('https://credit-unionapi.onrender.com/api/security/settings', {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -123,7 +123,7 @@ const SecurityCenter = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:3000/api/security/change-password',
+        'https://credit-unionapi.onrender.com/api/security/change-password',
         {
           currentPassword: passwordData.currentPassword,
           newPassword: passwordData.newPassword
@@ -162,7 +162,7 @@ const SecurityCenter = () => {
       }
 
       const response = await axios.post(
-        'http://localhost:3000/api/security/enable-2fa',
+        'https://credit-unionapi.onrender.com/api/security/enable-2fa',
         payload,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -192,7 +192,7 @@ const SecurityCenter = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:3000/api/security/verify-2fa',
+        'https://credit-unionapi.onrender.com/api/security/verify-2fa',
         { code: twoFactorData.verificationCode },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -223,7 +223,7 @@ const SecurityCenter = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:3000/api/security/disable-2fa',
+        'https://credit-unionapi.onrender.com/api/security/disable-2fa',
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -286,7 +286,7 @@ const handleSaveSecurityQuestions = async (e) => {
   try {
     const token = localStorage.getItem('token');
     const response = await axios.post(
-      'http://localhost:3000/api/security/security-questions',
+      'https://credit-unionapi.onrender.com/api/security/security-questions',
       payload,
       { 
         headers: { 
@@ -324,7 +324,7 @@ const handleSaveSecurityQuestions = async (e) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:3000/api/security/alert-preferences',
+        'https://credit-unionapi.onrender.com/api/security/alert-preferences',
         alertPreferences,
         { headers: { Authorization: `Bearer ${token}` } }
       );

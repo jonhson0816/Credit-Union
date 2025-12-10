@@ -13,7 +13,7 @@ const NewsroomPage = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [categories, setCategories] = useState([]);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+  const API_URL = import.meta.env.VITE_API_URL || 'https://credit-unionapi.onrender.com/api';
 
   // Fetch news articles
   const fetchNews = async (page = 1, category = 'All', search = '') => {

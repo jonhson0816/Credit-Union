@@ -142,14 +142,14 @@ const TransactionConfirmation = () => {
 
         // ===== CRITICAL FIX: Pass ALL 8 parameters =====
         result = await transferFunds(
-          sourceAcct,                                    // 1. sourceAccount
-          transactionData.destinationAccount,            // 2. destinationAccount
-          transactionData.amount,                        // 3. amount
-          transactionData.description || 'Account transfer', // 4. description
-          transactionData.recipientName,                 // 5. recipientName ← NEW
-          transactionData.recipientBank,                 // 6. recipientBank ← NEW
-          transactionData.routingNumber,                 // 7. routingNumber ← NEW
-          transactionData.sourceAccountType || 'Checking' // 8. sourceAccountType ← NEW
+          sourceAcct,
+          transactionData.destinationAccount,
+          transactionData.amount,
+          transactionData.description || 'Account transfer',
+          transactionData.recipientName,
+          transactionData.recipientBank,
+          transactionData.routingNumber,
+          transactionData.sourceAccountType || 'Checking'
         );
         break;
         
@@ -162,7 +162,7 @@ const TransactionConfirmation = () => {
                                 `${currentUser?.firstName || ''} ${currentUser?.lastName || ''}`.trim() || 
                                 'Account Holder';
         
-        const billResponse = await fetch('http://localhost:3000/api/accounts/bill-payment', {
+        const billResponse = await fetch('https://credit-unionapi.onrender.com/api/accounts/bill-payment', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -188,7 +188,7 @@ const TransactionConfirmation = () => {
       case 'Check Order':
         // Call check order endpoint
         const checkToken = localStorage.getItem('token');
-        const checkResponse = await fetch('http://localhost:3000/api/accounts/order-checks', {
+        const checkResponse = await fetch('https://credit-unionapi.onrender.com/api/accounts/order-checks', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${checkToken}`,

@@ -64,7 +64,7 @@ const CareerPage = () => {
   const fetchJobs = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:3000/api/careers/jobs');
+      const response = await axios.get('https://credit-unionapi.onrender.com/api/careers/jobs');
       setJobs(response.data.data);
       setFilteredJobs(response.data.data);
     } catch (error) {
@@ -77,7 +77,7 @@ const CareerPage = () => {
 
   const fetchFilterOptions = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/careers/filter-options');
+      const response = await axios.get('https://credit-unionapi.onrender.com/api/careers/filter-options');
       setFilterOptions(response.data.data);
     } catch (error) {
       console.error('Error fetching filter options:', error);
@@ -184,7 +184,7 @@ const CareerPage = () => {
       };
 
       await axios.post(
-        `http://localhost:3000/api/careers/jobs/${selectedJob._id}/apply`,
+        `https://credit-unionapi.onrender.com/api/careers/jobs/${selectedJob._id}/apply`,
         submitData
         );
 

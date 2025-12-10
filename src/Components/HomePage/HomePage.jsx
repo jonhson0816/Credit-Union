@@ -12,7 +12,7 @@ import './HomePage.css';
 const getFullImageUrl = (imageUrl) => {
   if (!imageUrl) return null;
   if (imageUrl.startsWith('http')) return imageUrl;
-  if (imageUrl.startsWith('/uploads')) return `http://localhost:3000${imageUrl}`;
+  if (imageUrl.startsWith('/uploads')) return `https://credit-unionapi.onrender.com${imageUrl}`;
   if (imageUrl.startsWith('data:')) return imageUrl;
   return imageUrl;
 };
