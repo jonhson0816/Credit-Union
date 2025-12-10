@@ -3,10 +3,15 @@ import axios from 'axios';
 
 const NavyFederalContext = createContext();
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://credit-unionapi.onrender.com/api';
+const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://localhost:3000/api' 
+  : 'https://credit-unionapi.onrender.com/api';
 
-axios.defaults.headers.post['Content-Type'] = 'application/json';
-axios.defaults.headers.common['Accept'] = 'application/json';
+// ADD THESE DEBUG LINES RIGHT AFTER API_URL
+console.log('🔍 Current API_URL:', API_URL);
+console.log('🔍 Hostname:', window.location.hostname);
+console.log('🔍 VITE_API_URL from env:', import.meta.env.VITE_API_URL);
+console.log('🔍 All env vars:', import.meta.env);
 
 // Initialize axios with stored token if it exists
 const token = localStorage.getItem('token');
