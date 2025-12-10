@@ -82,58 +82,81 @@ const ProfilePage = () => {
   }, [profile]);
 
   const handleImageUpload = async (event) => {
-    try {
-      const file = event.target.files?.[0];
-      if (!file) return;
-      
-      const token = getToken();
-      if (!token) {
-        setError('Please log in to upload images');
-        return;
-      }
-      
-      setLoading(true);
-      setError(null);
-      
-      const formData = new FormData();
-      formData.append('profileImage', file);
-      
-      const response = await axios.post(`${API_URL}/profile/image`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          Authorization: `Bearer ${token}`
-        }
-      });
-      
-      if (response.data.success) {
-        // Update local state
-        const imageUrl = response.data.profileImage;
-        const newProfile = { ...profile, profileImage: imageUrl };
-        setProfile(newProfile);
-        
-        // Also update editedProfile if in edit mode
-        if (isEditing) {
-          setEditedProfile(prev => ({ ...prev, profileImage: imageUrl }));
-        }
-        
-        // Save to localStorage immediately
-        localStorage.setItem('userProfile', JSON.stringify(newProfile));
-        
-        // Dispatch event for Navbar to update
-        const event = new CustomEvent('profileUpdated', { detail: newProfile });
-        window.dispatchEvent(event);
-      }
-    } catch (err) {
-      console.error('Error uploading image:', err);
-      if (err.response?.status === 401) {
-        setError('Session expired. Please log in again.');
-      } else {
-        setError('Failed to upload image. Please try again.');
-      }
-    } finally {
-      setLoading(false);
+  try {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      setError('Please select an image file (JPEG, PNG, or GIF)');
+      return;
     }
-  };
+    
+    // Validate file size (5MB max)
+    if (file.size > 5 * 1024 * 1024) {
+      setError('Image size must be less than 5MB');
+      return;
+    }
+    
+    const token = getToken();
+    if (!token) {
+      setError('Please log in to upload images');
+      return;
+    }
+    
+    setLoading(true);
+    setError(null);
+    
+    const formData = new FormData();
+    formData.append('profileImage', file);
+    
+    // Use the correct API URL
+    const response = await axios.post(`${API_URL}/profile/image`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`
+      },
+      timeout: 30000 // 30 second timeout for image upload
+    });
+    
+    if (response.data.success) {
+      // Update local state
+      const imageUrl = response.data.profileImage;
+      const newProfile = { ...profile, profileImage: imageUrl };
+      setProfile(newProfile);
+      
+      // Also update editedProfile if in edit mode
+      if (isEditing) {
+        setEditedProfile(prev => ({ ...prev, profileImage: imageUrl }));
+      }
+      
+      // Save to localStorage immediately
+      localStorage.setItem('userProfile', JSON.stringify(newProfile));
+      
+      // Dispatch event for Navbar to update
+      const event = new CustomEvent('profileUpdated', { detail: newProfile });
+      window.dispatchEvent(event);
+      
+      // Show success message (optional)
+      console.log('Profile image updated successfully');
+    }
+  } catch (err) {
+    console.error('Error uploading image:', err);
+    if (err.response?.status === 401) {
+      setError('Session expired. Please log in again.');
+    } else if (err.code === 'ECONNABORTED') {
+      setError('Upload timeout. Please try again with a smaller image.');
+    } else {
+      setError(err.response?.data?.message || 'Failed to upload image. Please try again.');
+    }
+  } finally {
+    setLoading(false);
+    // Reset file input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  }
+};
 
   const handleImageClick = () => {
     fileInputRef.current?.click();
@@ -230,11 +253,20 @@ const ProfilePage = () => {
         >
           {profile.profileImage ? (
             <img 
-              src={profile.profileImage.startsWith('/uploads') 
-                ? `https://credit-unionapi.onrender.com${profile.profileImage}` 
-                : profile.profileImage} 
+              src={
+                profile.profileImage.startsWith('http') 
+                  ? profile.profileImage 
+                  : profile.profileImage.startsWith('/uploads')
+                  ? `https://credit-unionapi.onrender.com${profile.profileImage}`
+                  : profile.profileImage
+              } 
               alt="Profile" 
               className="pro003-profile-image"
+              onError={(e) => {
+                console.error('Image failed to load:', profile.profileImage);
+                e.target.style.display = 'none';
+                e.target.nextElementSibling?.style.display = 'flex';
+              }}
             />
           ) : (
             <div className="pro003-profile-image-placeholder">
