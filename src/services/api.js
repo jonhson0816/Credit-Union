@@ -1,11 +1,25 @@
 import axios from 'axios';
 
+const getBaseURL = () => {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    return 'http://localhost:3000';
+  }
+  
+  return 'https://credit-unionapi.onrender.com';
+};
+
 const API_CONFIG = {
-  BASE_URL: import.meta.env.VITE_API_URL || 'https://credit-unionapi.onrender.com',
+  BASE_URL: getBaseURL(),
   TIMEOUT: 30000,
   RETRY_ATTEMPTS: 3,
   RETRY_DELAY: 1000
 };
+
+console.log('🌐 API Base URL:', API_CONFIG.BASE_URL);
 
 const api = axios.create({
   baseURL: API_CONFIG.BASE_URL,
@@ -17,7 +31,6 @@ const api = axios.create({
   timeout: API_CONFIG.TIMEOUT
 });
 
-// Auth storage configuration
 const AUTH_KEY = 'nfcu_auth';
 
 const authStorage = {
@@ -46,7 +59,6 @@ const authStorage = {
   }
 };
 
-// Token refresh configuration
 let isRefreshing = false;
 let failedQueue = [];
 
@@ -61,10 +73,8 @@ const processQueue = (error, token = null) => {
   failedQueue = [];
 };
 
-// Request interceptor
 api.interceptors.request.use(
   (config) => {
-    // Add a retry count to the config
     config.retryCount = config.retryCount || 0;
     
     const authData = authStorage.get();
@@ -78,18 +88,15 @@ api.interceptors.request.use(
   }
 );
 
-// Response interceptor with retry logic
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
 
-    // Implement retry logic for network errors and 5xx errors
     if (error.code === 'ECONNABORTED' || (error.response && error.response.status >= 500)) {
       if (originalRequest.retryCount < API_CONFIG.RETRY_ATTEMPTS) {
         originalRequest.retryCount += 1;
         
-        // Exponential backoff
         const delay = API_CONFIG.RETRY_DELAY * Math.pow(2, originalRequest.retryCount - 1);
         
         return new Promise(resolve => {
@@ -98,7 +105,6 @@ api.interceptors.response.use(
       }
     }
 
-    // Handle 401 errors and token refresh
     if (error.response?.status === 401 && !originalRequest._retry) {
       if (isRefreshing) {
         try {
@@ -121,7 +127,7 @@ api.interceptors.response.use(
           throw new Error('No refresh token available');
         }
 
-        const response = await api.post('/auth/refresh', {
+        const response = await api.post('/api/auth/refresh', {
           refreshToken: authData.refreshToken
         });
 
@@ -133,7 +139,6 @@ api.interceptors.response.use(
           refreshToken
         });
 
-        // Update headers
         api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         originalRequest.headers['Authorization'] = `Bearer ${token}`;
 
@@ -143,7 +148,6 @@ api.interceptors.response.use(
         processQueue(refreshError, null);
         authStorage.clear();
         
-        // Handle redirect
         if (window.location.pathname !== '/login') {
           window.location.href = '/login';
         }
@@ -154,7 +158,6 @@ api.interceptors.response.use(
       }
     }
 
-    // Handle 404 errors more gracefully
     if (error.response?.status === 404) {
       console.warn(`Resource not found: ${originalRequest.url}`);
       return Promise.reject({
@@ -167,4 +170,5 @@ api.interceptors.response.use(
   }
 );
 
+export const API_BASE_URL = API_CONFIG.BASE_URL;
 export { api as default, API_CONFIG, authStorage };

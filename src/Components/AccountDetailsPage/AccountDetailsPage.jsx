@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { US_BANKS } from '../../utils/bankData';
+import { API_BASE_URL } from '../../services/api';
 import { 
   ArrowLeft, 
   Download, 
@@ -167,7 +168,6 @@ const fetchAccountDetails = async () => {
       return;
     }
 
-    // Validate accountId before making request
     if (!accountId || accountId === 'undefined' || accountId === 'null') {
       console.error('Invalid accountId:', accountId);
       setError('Invalid account ID');
@@ -178,17 +178,16 @@ const fetchAccountDetails = async () => {
 
     console.log('=== FETCHING ACCOUNT DETAILS ===');
     console.log('AccountId:', accountId);
-    console.log('Token exists:', !!token);
+    console.log('Full URL:', `${API_BASE_URL}/api/account-details/${accountId}`);
 
-    // Call your backend API
-    const response = await fetch(`/api/account-details/${accountId}`, {
+    const response = await fetch(`${API_BASE_URL}/api/account-details/${accountId}`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
       }
     });
 
-    console.log('API Response status:', response.status);
+    console.log('Response status:', response.status);
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -196,20 +195,13 @@ const fetchAccountDetails = async () => {
     }
 
     const data = await response.json();
-    console.log('API Response data:', data);
     
     if (data.success && data.data) {
-      // Set ONLY ONE account (from API response)
       setAccount(data.data.account);
-      
-      // Set transactions for THIS account only
       setTransactions(data.data.transactions || []);
-      
-      // Set stats for THIS account only
       setStats(data.data.stats || null);
       
-      console.log('✓ Loaded account:', data.data.account.accountType);
-      console.log('✓ Loaded transactions:', data.data.transactions.length);
+      console.log('✓ Loaded:', data.data.transactions.length, 'transactions');
       setLoading(false);
       return;
     }
@@ -217,11 +209,10 @@ const fetchAccountDetails = async () => {
     throw new Error('Invalid response format');
     
   } catch (err) {
-    console.error('❌ Error fetching account details:', err);
+    console.error('❌ Error:', err);
     setError('Error loading account details: ' + err.message);
     setLoading(false);
     
-    // If API fails, don't redirect immediately - show error
     setTimeout(() => {
       if (window.confirm('Failed to load account. Return to home?')) {
         navigate('/home');
