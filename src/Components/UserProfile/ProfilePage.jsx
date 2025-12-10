@@ -265,7 +265,10 @@ const ProfilePage = () => {
               onError={(e) => {
                 console.error('Image failed to load:', profile.profileImage);
                 e.target.style.display = 'none';
-                e.target.nextElementSibling?.style.display = 'flex';
+                const placeholder = e.target.nextElementSibling;
+                if (placeholder) {
+                  placeholder.style.display = 'flex';
+                }
               }}
             />
           ) : (
